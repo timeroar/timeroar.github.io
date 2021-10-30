@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TimeRoar的博客</title>
+  
+  <subtitle>TimeRoar的程序之路</subtitle>
+  <link href="https://timeroar.com/atom.xml" rel="self"/>
+  
+  <link href="https://timeroar.com/"/>
+  <updated>2021-10-30T01:08:23.474Z</updated>
+  <id>https://timeroar.com/</id>
+  
+  <author>
+    <name>TimeRoar</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之工厂模式</title>
+    <link href="https://timeroar.com/2021/10/29/factory-pattern/"/>
+    <id>https://timeroar.com/2021/10/29/factory-pattern/</id>
+    <published>2021-10-29T15:25:01.000Z</published>
+    <updated>2021-10-30T01:08:23.474Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;代码优雅之路-设计模式之工厂模式&quot;&gt;&lt;a href=&quot;#代码优雅之路-设计模式之工厂模式&quot; class=&quot;headerlink&quot; title=&quot;代码优雅之路-设计模式之工厂模式&quot;&gt;&lt;/a&gt;代码优雅之路-设计模式之工厂模式&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="工厂模式" scheme="https://timeroar.com/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="设计模式" scheme="https://timeroar.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+</feed>
