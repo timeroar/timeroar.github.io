@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式之工厂模式,简单工厂模式,工厂方法模式,抽象工厂模式">
-    <meta name="description" content="代码优雅之路-设计模式之工厂模式概述现实中的工厂,就是造东西的,那我们生活中有哪些类型的工厂呢? 总结一下,可以分为三种:
+    <meta name="keywords" content="Linux,Docker,docker,镜像,离线docker安装,docker安装,linux安装docker">
+    <meta name="description" content="Linux环境Docker安装本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:
 
-自给自足的小作坊-这种工厂产能不大,但是对于重复工作有一套自己的方案
-流水线性的大工厂-已经有了一套相对完善的机器">
+​    Install Docker Engine on CentOS | Docker Documentation
+
+Linux">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>设计模式之工厂模式 | TimeRoar的博客</title>
+    <title>Linux环境Docker安装 | TimeRoar的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.0/libs/awesome/css/all.min.css">
@@ -269,12 +270,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/factory.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/docker.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式之工厂模式</h1>
+                    <h1 class="description center-align post-title">Linux环境Docker安装</h1>
                 </div>
             </div>
         </div>
@@ -390,16 +391,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">工厂模式</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
-                                <span class="chip bg-color">代码优雅之路</span>
+                            <a href="/tags/%E9%95%9C%E5%83%8F/">
+                                <span class="chip bg-color">镜像</span>
                             </a>
                         
                     </div>
@@ -410,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                设计模式
+                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
+                                云原生
                             </a>
                         
                     </div>
@@ -423,28 +420,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-29
+                    2021-11-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-11-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    876
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    4 分
                 </div>
                 
 
@@ -472,223 +469,199 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="代码优雅之路-设计模式之工厂模式"><a href="#代码优雅之路-设计模式之工厂模式" class="headerlink" title="代码优雅之路-设计模式之工厂模式"></a>代码优雅之路-设计模式之工厂模式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>现实中的工厂,就是造东西的,那我们生活中有哪些类型的工厂呢? 总结一下,可以分为三种:</p>
-<ol>
-<li>自给自足的小作坊-这种工厂产能不大,但是对于重复工作有一套自己的方案</li>
-<li>流水线性的大工厂-已经有了一套相对完善的机器流水线,固定的模式产能效率都有很大提升</li>
-<li>完善的产业链代工厂-这时候已经可以不用关心这个东西怎么出来的,只掌握核心即可</li>
-</ol>
-<p>在代码中,同样也存在现实社会中的上述三种情况,依次对应着我们熟知的简单工厂模式(小作坊),工厂方法模式(大工厂),抽象工厂模式(代工厂)。</p>
-<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>小作坊中,往往制造某一种类商品,比如某章丘铁锅制造坊,某棉花制造坊等等,<strong>简单工厂模式(Simple Factory Pattern)</strong> 就是这样一种模式,由一特定的工厂对象,创造出指定的产品并实例化.使用起来往往只需传入要制造哪类产品(参数)即可。</p>
-<p>现在我们用代码来清晰直观的了解下,现已中华传统美食水饺为例:</p>
-<ol>
-<li>由于水饺有各种各样的内陷,我们做一个顶层接口作为标准</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IDumplings</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 各种水饺都有制作过程
-     */</span>
-    <span class="token keyword">void</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Linux环境Docker安装"><a href="#Linux环境Docker安装" class="headerlink" title="Linux环境Docker安装"></a>Linux环境Docker安装</h1><p>本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:</p>
+<blockquote>
+<p>​    <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
+</blockquote>
+<h2 id="Linux下载地址"><a href="#Linux下载地址" class="headerlink" title="Linux下载地址"></a>Linux下载地址</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html">http://mirrors.aliyun.com/centos/7/isos/x86_64/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<ol start="2">
-<li>现在,我们准备做韭菜鸡蛋馅的水饺,并且已经录入好了制作方法</li>
+<p>博主Linux版本为 <strong>CentOS-7-x86_64-DVD-2009</strong></p>
+<h2 id="删除历史Docker"><a href="#删除历史Docker" class="headerlink" title="删除历史Docker"></a>删除历史Docker</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="在线环境"><a href="#在线环境" class="headerlink" title="在线环境"></a>在线环境</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y yum-utils \
+    device-mapper-persistent-data \
+    lvm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="设置docker仓库"><a href="#设置docker仓库" class="headerlink" title="设置docker仓库"></a>设置docker仓库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum-config-manager \
+      --add-repo \
+      https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="设置阿里云镜像仓库"><a href="#设置阿里云镜像仓库" class="headerlink" title="设置阿里云镜像仓库"></a>设置阿里云镜像仓库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y docker-ce docker-ce-cli containerd.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="阿里云镜像加速器"><a href="#阿里云镜像加速器" class="headerlink" title="阿里云镜像加速器"></a>阿里云镜像加速器</h3><ul>
+<li>访问以下网址登录自己的阿里云账户,查看自己的镜像加速地址</li>
+</ul>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>执行以下命令</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo mkdir -p &#x2F;etc&#x2F;docker
+sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &lt;&lt;-&#39;EOF&#39;
+&#123;
+&quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxx.mirror.aliyuncs.com&quot;]
+&#125;
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="离线环境"><a href="#离线环境" class="headerlink" title="离线环境"></a>离线环境</h2><p>离线安装参考官网</p>
+<blockquote>
+<p>​    <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/binaries/">Install Docker Engine from binaries | Docker Documentation</a></p>
+</blockquote>
+<ol>
+<li>下载官网安装包(建议使用CentoOS 7 17XX 以上版本)</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChiveEggDumpling</span> <span class="token keyword">implements</span> <span class="token class-name">IDumplings</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"制作韭菜鸡蛋水饺的过程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">https://download.docker.com/linux/static/stable/x86_64/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>选择自己合适的版本,博主下载版本为<strong>docker-18.09.9.tgz</strong></p>
+<ol start="2">
+<li>上传至Linux服务器后在文件所在目录执行</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar xzvf docker-18.09.9.tgz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="3">
-<li>现在我们开始制作韭菜水饺</li>
+<li>复制所有docker文件至/user/bin目录下,该目录为环境变量目录</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//准备好韭菜馅水饺的制作工序</span>
-    <span class="token class-name">IDumplings</span> dumpling <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ChiveEggDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作</span>
-    dumpling<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>我们来细看上面的三道工序,父类的水饺大类(IDumplings)指向了子类的韭菜馅水饺(ChiveEggDumpling),如果我们需要分别制作各类水饺,就会形成如下代码:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//准备好韭菜馅水饺的制作工序</span>
-    <span class="token class-name">IDumplings</span> chiveEggDumpling <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ChiveEggDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作-韭菜馅水饺</span>
-    chiveEggDumpling<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//准备好白菜馅水饺的制作工序</span>
-    <span class="token class-name">IDumplings</span> cabbageDumpling <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CabbageDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作-白菜馅水饺</span>
-    cabbageDumpling<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//准备好芹菜馅水饺的制作工序</span>
-    <span class="token class-name">IDumplings</span> celeryDumpling <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CeleryDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作-芹菜馅水饺</span>
-    celeryDumpling<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在我们的实际项目中,对象的创建过程远远要比上述代码更为复杂,即使是上述代码,我们依然会觉得臃肿,更何况在实际运用过程中,随着水饺种类越来越多,大量的类似代码迎面扑来,会不会感到窒息呢? 这是时候我们就需要用<strong>简单工厂模式</strong>对代码进行优化,总体思路就是:<strong>细节隐藏,减少依赖</strong>。</p>
-<ol>
-<li>首先-建造水饺制作小作坊</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DumplingFactory</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 根据你想要的吃的 获取哪种水饺
-     * */</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">IDumplings</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">String</span> dumplingName<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">switch</span> <span class="token punctuation">(</span>dumplingName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">case</span> <span class="token string">"cabbage"</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CabbageDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">"chiveEgg"</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ChiveEggDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> <span class="token string">"celery"</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CeleryDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">default</span><span class="token operator">:</span>
-                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
-<li>再一次制作我们要的水饺</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//制作韭菜馅水饺</span>
-    <span class="token class-name">IDumplings</span> chiveEgg <span class="token operator">=</span> <span class="token class-name">DumplingFactory</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"chiveEgg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    chiveEgg<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//制作白菜馅水饺</span>
-    <span class="token class-name">IDumplings</span> cabbage <span class="token operator">=</span> <span class="token class-name">DumplingFactory</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"cabbage"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cabbage<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//制作芹菜馅水饺</span>
-    <span class="token class-name">IDumplings</span> celery <span class="token operator">=</span> <span class="token class-name">DumplingFactory</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"celery"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    celery<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>大家有没有发现,最明显的区别在哪,就在于我们不需要知道哪个类制造的,我们只需要知道我们要制作哪种水饺即可。当然,小作坊毕竟是小作坊,水饺种类少了,它足以应对,但是一旦要生产几十种上百种水饺,工厂(工厂类)就要炸锅了,而且,代码本身也不符合开闭原则(开闭原则后续会单独介绍),为了解决<strong>简单工厂模式</strong>的<strong>弊端</strong>,这时候,<strong>工厂方法模式</strong>就来了。</p>
-<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><p>小作坊已经无法应对我们越来越多的产品种类,这时候工厂升级了!我们需要对流水线作业进行分门别类了,一条流水线就做一类水饺,**工厂方法模式(Factory Method Pattern)**应运而生。</p>
-<p>直接上代码:</p>
-<ol>
-<li>建立我们的大工厂</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IDumplingFactory</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 启动水饺流水线
-     *
-     * @return 指定水饺的流水线
-     */</span>
-    <span class="token class-name">IDumplings</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
-<li>建立各种水饺流水线-举个白菜例子,其他类似</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CabbageDumplingFactory</span> <span class="token keyword">implements</span> <span class="token class-name">IDumplingFactory</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">IDumplings</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CabbageDumpling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li>启动我们的流水线,制作水饺</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//开启白菜水饺流水线</span>
-    <span class="token class-name">CabbageDumplingFactory</span> cabbageDumplingFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CabbageDumplingFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开启芹菜水饺流水线</span>
-    <span class="token class-name">CeleryDumplingFactory</span> celeryDumplingFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CeleryDumplingFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作白菜水饺</span>
-    cabbageDumplingFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//开始制作芹菜水饺</span>
-    celeryDumplingFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这样,我们在上新品类的时候,只需要新增流水线即可,而无需过多关注产品创建的细节,符合开闭原则,但是<strong>工厂方法模式</strong>也存在<strong>弊端</strong>,会导致流水线(类)越来越多。</p>
-<h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><p>我们在生产的过程当中,流程都是一样的,比如水饺的生产流程就是1.做皮,2.调馅,3.制作打包。但是这个过程中,做皮是一样的,后续的流程也是不让你随意变动的,<strong>抽象工厂模式</strong>就为解决此类问题而来,话不多说,上代码。</p>
-<ol>
-<li>约定好后续具体步骤</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * &lt;p>IStuffing&lt;/p>
- * 调馅的过程
- *
- * @author TimeRoar-Wang Ziming
- * @date 2021/10/29 22:42
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IStuffing</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 调配
-     */</span>
-    <span class="token keyword">void</span> <span class="token function">deploy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * &lt;p>IPackage&lt;/p>
- * 制作打包的过程
- *
- * @author TimeRoar-Wang Ziming
- * @date 2021/10/29 22:45
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IPackage</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 水饺包装盒
-     */</span>
-    <span class="token keyword">void</span> <span class="token function">box</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
-<li>提供我们的核心技术,以此为基础开始制作</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">KernelDumplingFactory</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token comment">/**
-     * 这里用了上等秘方老面,统一制作
-     * */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">makeWrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"制作出来水饺皮"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">/** 调馅 */</span>
-    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">IStuffing</span> <span class="token function">createStuffing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment">/** 打包 */</span>
-    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">IPackage</span> <span class="token function">createBox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li>对每个步骤的方法实现具体操作-以芹菜举例</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CeleryStuffing</span> <span class="token keyword">implements</span> <span class="token class-name">IStuffing</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deploy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"制作芹菜馅"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">//打包方法</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CeleryBox</span> <span class="token keyword">implements</span> <span class="token class-name">IPackage</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">box</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"芹菜水饺打包"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mv docker&#x2F;* &#x2F;usr&#x2F;bin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="4">
-<li>开始流水线操作</li>
+<li>执行Docker安装命令</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//开启白菜水饺流水线</span>
-    <span class="token class-name">CabbageFactory</span> cabbageFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CabbageFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//做皮</span>
-    cabbageFactory<span class="token punctuation">.</span><span class="token function">makeWrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//调馅</span>
-    cabbageFactory<span class="token punctuation">.</span><span class="token function">createStuffing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//打包</span>
-    cabbageFactory<span class="token punctuation">.</span><span class="token function">createBox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dockerd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>由此,一条完整的流水线就制作成功了,整个制作流程<strong>抽象工厂模式</strong>清晰的描述出来,但是依旧存在缺点,如果我想在流水线中加入一个环节,比如,把水饺做成形状加入进去,全部流水线也都需要调整,完全不符合开闭原则。</p>
-<h2 id="结言"><a href="#结言" class="headerlink" title="结言"></a>结言</h2><p>至此,三种工厂模式介绍完了,都有各自的优缺点,实际运用中依据自己项目实际情况选择应用,有时候开闭原则不用太过在意遵循,迭代周期一年两年有何不可。文章中提到的源码。可访问我的 <a target="_blank" rel="noopener" href="https://github.com/timeroar/timeroar-blog-code.git">github仓库</a> 进行参考。不足之处,也请留言指出</p>
+<p>此处如果没有异常显示如下</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.836415513</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> <span class="token class-name">Docker</span> daemon                                 commit<span class="token operator">=</span><span class="token number">039</span>a7df9ba <span class="token function">graphdriver</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">=</span>overlay2 version<span class="token operator">=</span><span class="token number">18.09</span><span class="token number">.9</span>
+INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.837355719</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> <span class="token class-name">Daemon</span> has completed initialization          
+INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.858023345</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> API listen on <span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>run<span class="token operator">/</span>docker<span class="token punctuation">.</span>sock  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>直接ctrl+c结束即可,此时Docker已经安装成功</p>
+<ol start="5">
+<li><p>使Docker作为系统服务启动</p>
+<ul>
+<li>为确保服务顺利安装,请先关闭Linux中的selinux策略</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vi &#x2F;etc&#x2F;selinux&#x2F;config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>修改selinux为disabled</li>
+</ul>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">SELINUX</span><span class="token punctuation">=</span><span class="token attr-value">disabled</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>执行重启命令</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>创建docker.service文件</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>docker.service文件添加以下内容</li>
+</ul>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[Unit]
+<span class="token attr-name">Description</span><span class="token punctuation">=</span><span class="token attr-value">Docker Application Container Engine</span>
+<span class="token attr-name">Documentation</span><span class="token punctuation">=</span><span class="token attr-value">https://docs.docker.com</span>
+<span class="token attr-name">After</span><span class="token punctuation">=</span><span class="token attr-value">network-online.target firewalld.service</span>
+<span class="token attr-name">Wants</span><span class="token punctuation">=</span><span class="token attr-value">network-online.target</span>
+
+[Service]
+<span class="token attr-name">Type</span><span class="token punctuation">=</span><span class="token attr-value">notify</span>
+<span class="token comment"># the default is not to use systemd for cgroups because the delegate issues still</span>
+<span class="token comment"># exists and systemd currently does not support the cgroup feature set required</span>
+<span class="token comment"># for containers run by docker</span>
+<span class="token attr-name">ExecStart</span><span class="token punctuation">=</span><span class="token attr-value">/usr/bin/dockerd</span>
+<span class="token attr-name">ExecReload</span><span class="token punctuation">=</span><span class="token attr-value">/bin/kill -s HUP $MAINPID</span>
+<span class="token comment"># Having non-zero Limit*s causes performance problems due to accounting overhead</span>
+<span class="token comment"># in the kernel. We recommend using cgroups to do container-local accounting.</span>
+<span class="token attr-name">LimitNOFILE</span><span class="token punctuation">=</span><span class="token attr-value">infinity</span>
+<span class="token attr-name">LimitNPROC</span><span class="token punctuation">=</span><span class="token attr-value">infinity</span>
+<span class="token attr-name">LimitCORE</span><span class="token punctuation">=</span><span class="token attr-value">infinity</span>
+<span class="token comment"># Uncomment TasksMax if your systemd version supports it.</span>
+<span class="token comment"># Only systemd 226 and above support this version.</span>
+<span class="token comment">#TasksMax=infinity</span>
+<span class="token attr-name">TimeoutStartSec</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token comment"># set delegate yes so that systemd does not reset the cgroups of docker containers</span>
+<span class="token attr-name">Delegate</span><span class="token punctuation">=</span><span class="token attr-value">yes</span>
+<span class="token comment"># kill only the docker process, not all processes in the cgroup</span>
+<span class="token attr-name">KillMode</span><span class="token punctuation">=</span><span class="token attr-value">process</span>
+<span class="token comment"># restart the docker process if it exits prematurely</span>
+<span class="token attr-name">Restart</span><span class="token punctuation">=</span><span class="token attr-value">on-failure</span>
+<span class="token attr-name">StartLimitBurst</span><span class="token punctuation">=</span><span class="token attr-value">3</span>
+<span class="token attr-name">StartLimitInterval</span><span class="token punctuation">=</span><span class="token attr-value">60s</span>
+
+[Install]
+<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">multi-user.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>创建docker.socket文件</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.socket<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>docker.socket文件添加以下内容</li>
+</ul>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[Unit]
+<span class="token attr-name">Description</span><span class="token punctuation">=</span><span class="token attr-value">Docker Socket for the API</span>
+<span class="token attr-name">PartOf</span><span class="token punctuation">=</span><span class="token attr-value">docker.service</span>
+
+[Socket]
+<span class="token comment"># If /var/run is not implemented as a symlink to /run, you may need to</span>
+<span class="token comment"># specify ListenStream=/var/run/docker.sock instead.</span>
+<span class="token attr-name">ListenStream</span><span class="token punctuation">=</span><span class="token attr-value">/run/docker.sock</span>
+<span class="token attr-name">SocketMode</span><span class="token punctuation">=</span><span class="token attr-value">0660</span>
+<span class="token attr-name">SocketUser</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token attr-name">SocketGroup</span><span class="token punctuation">=</span><span class="token attr-value">docker</span>
+
+[Install]
+<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">sockets.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>赋予上述两个文件执行权限</p>
+</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service
+chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.socket<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="7">
+<li>重新加载系统服务</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
+systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="8">
+<li>设置开机自启动</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl enable docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="9">
+<li>重启Linux</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="启动Docker"><a href="#启动Docker" class="headerlink" title="启动Docker"></a>启动Docker</h2><ul>
+<li>执行docker启动命令</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>测试Docker是否安装成功</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo docker ps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 
                 
             </div>
@@ -715,7 +688,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://timeroar.com/posts/20533.html">https://timeroar.com/posts/20533.html</a>
+                    <a href="https://timeroar.com/posts/24907.html">https://timeroar.com/posts/24907.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -753,16 +726,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">工厂模式</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
-                                    <span class="chip bg-color">代码优雅之路</span>
+                                <a href="/tags/%E9%95%9C%E5%83%8F/">
+                                    <span class="chip bg-color">镜像</span>
                                 </a>
                             
                         </div>
@@ -1074,9 +1043,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/24907.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/docker.jpg" class="responsive-img" alt="Linux环境Docker安装">
+                        
+                        <span class="card-title">Linux环境Docker安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
+                                    云原生
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%95%9C%E5%83%8F/">
+                        <span class="chip bg-color">镜像</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/56241.html">
                     <div class="card-image">
@@ -1093,9 +1116,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1121,63 +1144,6 @@
                     
                     <a href="/tags/%E6%97%B6%E9%97%B4%E7%89%87/">
                         <span class="chip bg-color">时间片</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/20533.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/factory.jpg" class="responsive-img" alt="设计模式之工厂模式">
-                        
-                        <span class="card-title">设计模式之工厂模式</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">工厂模式</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
-                        <span class="chip bg-color">代码优雅之路</span>
                     </a>
                     
                 </div>
