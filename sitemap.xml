@@ -60,27 +60,6 @@
 
   
   <url>
-    <loc>https://blog.timeroar.com/tags/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.timeroar.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.timeroar.com/tags/%E6%97%B6%E9%97%B4%E7%89%87/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.timeroar.com/tags/docker/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
@@ -115,14 +94,28 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://blog.timeroar.com/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://blog.timeroar.com/tags/%E5%B9%B6%E5%8F%91/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+  <url>
+    <loc>https://blog.timeroar.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.timeroar.com/tags/%E6%97%B6%E9%97%B4%E7%89%87/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
   
   <url>
     <loc>https://blog.timeroar.com/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/</loc>
@@ -133,6 +126,13 @@
   
   <url>
     <loc>https://blog.timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.timeroar.com/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
