@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="QPS,TPS,高并发,并发,时间片,线程,进程">
+    <meta name="keywords" content="QPS,TPS,高并发,并发,时间片,线程,进程,线程的生命周期">
     <meta name="description" content="并发编程的探索简介顾名思义,并发就是指当前的系统,能够同时承载的访问数量。通常会细定义为TPS与QPS
 
 TPS(Transaction Processing Systems): 每秒事务处理数量
@@ -410,8 +410,8 @@ QPS(Query Processing ">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E5%B9%B6%E5%8F%91/" class="post-category">
-                                系统并发
+                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                并发编程
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@ QPS(Query Processing ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-01
+                    2021-11-06
                 </div>
                 
 
@@ -537,6 +537,16 @@ QPS(Query Processing ">
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Callable接口提供了一个带返回值的call方法,返回类型由实现Callable的泛型决定,并用FutureTask类来获取未来任务的结果。 </p>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>本文已Java语言距离,在Java中,线程一共有6种状态</p>
+<ul>
+<li>New                新生</li>
+<li>Runnable       运行</li>
+<li>Blocked          阻塞</li>
+<li>Waiting           等待</li>
+<li>TimedWaiting  超时等待</li>
+<li>Terminated     结束</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/concurent.png" alt="concurent" title="线程的生命周期示意图"></p>
 
                 
             </div>
