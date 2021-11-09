@@ -5,11 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Linux,Docker,docker,镜像,离线docker安装,docker安装,linux安装docker">
-    <meta name="description" content="Linux环境下Docker的安装本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:
+    <meta name="description" content="Linux环境下Docker的安装
+本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:
 
-​    Install Docker Engine on CentOS | Docker Documentation
+​	Install Docker Engine on CentOS | Docker Documentation
 
-Lin">
+Linux">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -434,7 +435,7 @@ Lin">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    878
+                    883
                 </div>
                 
 
@@ -469,14 +470,16 @@ Lin">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux环境下Docker的安装"><a href="#Linux环境下Docker的安装" class="headerlink" title="Linux环境下Docker的安装"></a>Linux环境下Docker的安装</h1><p>本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:</p>
+                <h1>Linux环境下Docker的安装</h1>
+<p>本文介绍了离线与在线两种安装Docker的方式,本文未提及内容可参考官网:</p>
 <blockquote>
-<p>​    <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
+<p>​	<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
 </blockquote>
-<h2 id="Linux下载地址"><a href="#Linux下载地址" class="headerlink" title="Linux下载地址"></a>Linux下载地址</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html">http://mirrors.aliyun.com/centos/7/isos/x86_64/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h2 id="Linux下载地址">Linux下载地址</h2>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">http://mirrors.aliyun.com/centos/7/isos/x86_64/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>博主Linux版本为 <strong>CentOS-7-x86_64-DVD-2009</strong></p>
-<h2 id="删除历史Docker"><a href="#删除历史Docker" class="headerlink" title="删除历史Docker"></a>删除历史Docker</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum remove docker \
+<h2 id="删除历史Docker">删除历史Docker</h2>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -484,26 +487,24 @@ Lin">
                   docker-latest-logrotate \
                   docker-logrotate \
                   docker-engine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="在线环境"><a href="#在线环境" class="headerlink" title="在线环境"></a>在线环境</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y yum-utils \
+<h2 id="在线环境">在线环境</h2>
+<h3 id="安装依赖">安装依赖</h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y yum-utils \
     device-mapper-persistent-data \
     lvm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="设置docker仓库"><a href="#设置docker仓库" class="headerlink" title="设置docker仓库"></a>设置docker仓库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum-config-manager \
+<h3 id="设置docker仓库">设置docker仓库</h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum-config-manager \
       --add-repo \
       https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="设置阿里云镜像仓库"><a href="#设置阿里云镜像仓库" class="headerlink" title="设置阿里云镜像仓库"></a>设置阿里云镜像仓库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y docker-ce docker-ce-cli containerd.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="阿里云镜像加速器"><a href="#阿里云镜像加速器" class="headerlink" title="阿里云镜像加速器"></a>阿里云镜像加速器</h3><ul>
+<h3 id="设置阿里云镜像仓库">设置阿里云镜像仓库</h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装Docker">安装Docker</h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y docker-ce docker-ce-cli containerd.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="阿里云镜像加速器">阿里云镜像加速器</h3>
+<ul>
 <li>访问以下网址登录自己的阿里云账户,查看自己的镜像加速地址</li>
 </ul>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>执行以下命令</li>
 </ul>
@@ -515,60 +516,52 @@ sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &lt;&lt;-&#39;EOF&#39;
 EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="离线环境"><a href="#离线环境" class="headerlink" title="离线环境"></a>离线环境</h2><p>离线安装参考官网</p>
+<h2 id="离线环境">离线环境</h2>
+<p>离线安装参考官网</p>
 <blockquote>
-<p>​    <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/binaries/">Install Docker Engine from binaries | Docker Documentation</a></p>
+<p>​	<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/binaries/">Install Docker Engine from binaries | Docker Documentation</a></p>
 </blockquote>
 <ol>
 <li>下载官网安装包(建议使用CentoOS 7 17XX 以上版本)</li>
 </ol>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">https://download.docker.com/linux/static/stable/x86_64/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>选择自己合适的版本,博主下载版本为<strong>docker-18.09.9.tgz</strong></p>
 <ol start="2">
 <li>上传至Linux服务器后在文件所在目录执行</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar xzvf docker-18.09.9.tgz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ol start="3">
 <li>复制所有docker文件至/user/bin目录下,该目录为环境变量目录</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mv docker&#x2F;* &#x2F;usr&#x2F;bin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ol start="4">
 <li>执行Docker安装命令</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dockerd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>此处如果没有异常显示如下</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.836415513</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> <span class="token class-name">Docker</span> daemon                                 commit<span class="token operator">=</span><span class="token number">039</span>a7df9ba <span class="token function">graphdriver</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">=</span>overlay2 version<span class="token operator">=</span><span class="token number">18.09</span><span class="token number">.9</span>
 INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.837355719</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> <span class="token class-name">Daemon</span> has completed initialization          
 INFO<span class="token punctuation">[</span><span class="token number">2021</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">01</span>T06<span class="token operator">:</span><span class="token number">54</span><span class="token operator">:</span><span class="token number">26.858023345</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">:</span><span class="token number">00</span><span class="token punctuation">]</span> API listen on <span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>run<span class="token operator">/</span>docker<span class="token punctuation">.</span>sock  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>直接ctrl+c结束即可,此时Docker已经安装成功</p>
 <ol start="5">
-<li><p>使Docker作为系统服务启动</p>
+<li>
+<p>使Docker作为系统服务启动</p>
 <ul>
 <li>为确保服务顺利安装,请先关闭Linux中的selinux策略</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vi &#x2F;etc&#x2F;selinux&#x2F;config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>修改selinux为disabled</li>
 </ul>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">SELINUX</span><span class="token punctuation">=</span><span class="token attr-value">disabled</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>执行重启命令</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>创建docker.service文件</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>docker.service文件添加以下内容</li>
 </ul>
@@ -605,12 +598,10 @@ INFO<span class="token punctuation">[</span><span class="token number">2021</spa
 
 [Install]
 <span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">multi-user.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>创建docker.socket文件</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.socket<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>docker.socket文件添加以下内容</li>
 </ul>
@@ -627,41 +618,36 @@ INFO<span class="token punctuation">[</span><span class="token number">2021</spa
 <span class="token attr-name">SocketGroup</span><span class="token punctuation">=</span><span class="token attr-value">docker</span>
 
 [Install]
-<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">sockets.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>赋予上述两个文件执行权限</p>
+<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">sockets.target</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>赋予上述两个文件执行权限</p>
 </li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service
 chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.socket<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ol start="7">
 <li>重新加载系统服务</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
 systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ol start="8">
 <li>设置开机自启动</li>
 </ol>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl enable docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ol start="9">
 <li>重启Linux</li>
 </ol>
 <pre class="line-numbers language-none"><code class="language-none">reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="启动Docker"><a href="#启动Docker" class="headerlink" title="启动Docker"></a>启动Docker</h2><ul>
+<h2 id="启动Docker">启动Docker</h2>
+<ul>
 <li>执行docker启动命令</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>测试Docker是否安装成功</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo docker ps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
 
                 
             </div>
@@ -1169,17 +1155,16 @@ systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span><
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/24907.html">
+                <a href="/posts/13835.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/docker.jpg" class="responsive-img" alt="Linux环境Docker的安装">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/Security.jpg" class="responsive-img" alt="Spring Security的原理与探索">
                         
-                        <span class="card-title">Linux环境Docker的安装</span>
+                        <span class="card-title">Spring Security的原理与探索</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1189,31 +1174,34 @@ systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span><
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                            <a href="/categories/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/" class="post-category">
+                                    认证与授权
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/Spring-Security/">
+                        <span class="chip bg-color">Spring Security</span>
                     </a>
                     
-                    <a href="/tags/%E9%95%9C%E5%83%8F/">
-                        <span class="chip bg-color">镜像</span>
+                    <a href="/tags/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/">
+                        <span class="chip bg-color">认证与授权</span>
+                    </a>
+                    
+                    <a href="/tags/Filter/">
+                        <span class="chip bg-color">Filter</span>
                     </a>
                     
                 </div>
@@ -1452,7 +1440,7 @@ systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4.2k</span>
+                        class="white-color">11.9k</span>
             
             
             
@@ -1553,10 +1541,6 @@ systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span><
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
