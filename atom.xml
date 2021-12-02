@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TimeRoar的博客</title>
+  
+  <subtitle>TimeRoar的程序之路</subtitle>
+  <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.timeroar.com/"/>
+  <updated>2021-12-02T14:17:17.515Z</updated>
+  <id>https://blog.timeroar.com/</id>
+  
+  <author>
+    <name>TimeRoar</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>架构师之路-领域驱动设计DDD</title>
+    <link href="https://blog.timeroar.com/posts/35796.html"/>
+    <id>https://blog.timeroar.com/posts/35796.html</id>
+    <published>2021-12-01T12:56:00.000Z</published>
+    <updated>2021-12-02T14:17:17.515Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;架构师之路-领域驱动设计DDD&lt;/h1&gt;
+&lt;h2 id=&quot;引文&quot;&gt;引文&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;领域驱动设计(Domain-Driven-Design),简称</summary>
+        
+      
+    
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    <category term="软件设计原则" scheme="https://blog.timeroar.com/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    
+    <category term="架构师之路" scheme="https://blog.timeroar.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程的艺术-Synchronized的原理</title>
+    <link href="https://blog.timeroar.com/posts/55233.html"/>
+    <id>https://blog.timeroar.com/posts/55233.html</id>
+    <published>2021-11-21T05:18:00.000Z</published>
+    <updated>2021-11-21T12:16:08.970Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;并发编程的艺术-Synchronized的使用及原理&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="并发编程" scheme="https://blog.timeroar.com/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="原子性" scheme="https://blog.timeroar.com/tags/%E5%8E%9F%E5%AD%90%E6%80%A7/"/>
+    
+    <category term="Synchronized" scheme="https://blog.timeroar.com/tags/Synchronized/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>架构师之路-七大软件设计的原则</title>
+    <link href="https://blog.timeroar.com/posts/65132.html"/>
+    <id>https://blog.timeroar.com/posts/65132.html</id>
+    <published>2021-11-15T12:22:00.000Z</published>
+    <updated>2021-11-15T15:27:35.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;架构师之路-七大软件设计的原则&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    <category term="软件设计原则" scheme="https://blog.timeroar.com/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>架构师之路-系统重构的前置条件</title>
+    <link href="https://blog.timeroar.com/posts/33741.html"/>
+    <id>https://blog.timeroar.com/posts/33741.html</id>
+    <published>2021-11-13T07:45:00.000Z</published>
+    <updated>2021-11-15T12:35:51.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;架构师之路-系统重构的前置条件&lt;/h1&gt;
+&lt;p&gt;在我们的工作当中,难免会遇到系统架构重构的问题,但是我们不能盲目的进行系统重构,因为重构的成本,代价还是很大的,那么什么时候,或者契机的情况下才能适合重构呢?&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    
+    <category term="架构师" scheme="https://blog.timeroar.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+    <category term="系统重构" scheme="https://blog.timeroar.com/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security的原理与探索</title>
+    <link href="https://blog.timeroar.com/posts/13835.html"/>
+    <id>https://blog.timeroar.com/posts/13835.html</id>
+    <published>2021-11-09T12:41:03.000Z</published>
+    <updated>2021-12-02T14:15:25.466Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Spring Security 的原理与探索&lt;/h1&gt;
+&lt;h3 id=&quot;简介&quot;&gt;简介&lt;/h3&gt;
+&lt;p&gt;本文基于Spring Security</summary>
+        
+      
+    
+    
+    
+    <category term="认证与授权" scheme="https://blog.timeroar.com/categories/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/"/>
+    
+    
+    <category term="Spring Security" scheme="https://blog.timeroar.com/tags/Spring-Security/"/>
+    
+    <category term="认证与授权" scheme="https://blog.timeroar.com/tags/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/"/>
+    
+    <category term="Filter" scheme="https://blog.timeroar.com/tags/Filter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程的探索</title>
+    <link href="https://blog.timeroar.com/posts/56241.html"/>
+    <id>https://blog.timeroar.com/posts/56241.html</id>
+    <published>2021-10-31T15:20:00.000Z</published>
+    <updated>2021-11-06T10:15:28.983Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;并发编程的探索&lt;/h1&gt;
+&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
+&lt;p&gt;顾名思义,并发就是指当前的系统,能够同时承载的访问数量。通常会细定义为TPS与QPS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TPS(Transaction Processing Systems):</summary>
+        
+      
+    
+    
+    
+    <category term="并发编程" scheme="https://blog.timeroar.com/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="并发" scheme="https://blog.timeroar.com/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+    <category term="线程" scheme="https://blog.timeroar.com/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="时间片" scheme="https://blog.timeroar.com/tags/%E6%97%B6%E9%97%B4%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之工厂模式</title>
+    <link href="https://blog.timeroar.com/posts/20533.html"/>
+    <id>https://blog.timeroar.com/posts/20533.html</id>
+    <published>2021-10-29T15:25:01.000Z</published>
+    <updated>2021-10-31T09:51:25.144Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;代码优雅之路-设计模式之工厂模式&lt;/h1&gt;
+&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;现实中的工厂,就是造东西的,那我们生活中有哪些类型的工厂呢?</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://blog.timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="工厂模式" scheme="https://blog.timeroar.com/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="设计模式" scheme="https://blog.timeroar.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="代码优雅之路" scheme="https://blog.timeroar.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
+  
+</feed>
