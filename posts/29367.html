@@ -4,13 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="系统架构,架构师,系统重构">
-    <meta name="description" content="架构师之路-系统重构的前置条件
-在我们的工作当中,难免会遇到系统架构重构的问题,但是我们不能盲目的进行系统重构,因为重构的成本,代价还是很大的,那么什么时候,或者契机的情况下才能适合重构呢?
-系统重构的标准因素
-
-
-当架构不能再去适应业务发">
+    <meta name="keywords" content="volatile,并发,可见性">
+    <meta name="description" content="并发编程的艺术-线程可见性volatile
+简介
+在多线程环境下,两个线程对同一变量进行操作时,互相是不可见状态,不可见状态就会导致一个线程修改了这个共享变量,而另一个线程不知道你去修改了,就可能导致变量最终预期与实际不一致的情况。为了确保">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>架构师之路-系统重构的前置条件 | TimeRoar的博客</title>
+    <title>并发编程的艺术-线程可见性volatile | TimeRoar的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/libs/awesome/css/all.min.css">
@@ -271,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/build.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/volatile.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">架构师之路-系统重构的前置条件</h1>
+                    <h1 class="description center-align post-title">并发编程的艺术-线程可见性volatile</h1>
                 </div>
             </div>
         </div>
@@ -392,12 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                                <span class="chip bg-color">架构师</span>
+                            <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
+                                <span class="chip bg-color">可见性</span>
                             </a>
                         
-                            <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84/">
-                                <span class="chip bg-color">系统重构</span>
+                            <a href="/tags/volatile/">
+                                <span class="chip bg-color">volatile</span>
                             </a>
                         
                     </div>
@@ -408,8 +405,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="post-category">
-                                架构师
+                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                并发编程
                             </a>
                         
                     </div>
@@ -421,28 +418,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-13
+                    2021-12-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-15
+                    2021-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -465,54 +462,125 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>架构师之路-系统重构的前置条件</h1>
-<p>在我们的工作当中,难免会遇到系统架构重构的问题,但是我们不能盲目的进行系统重构,因为重构的成本,代价还是很大的,那么什么时候,或者契机的情况下才能适合重构呢?</p>
-<h2 id="系统重构的标准因素">系统重构的标准因素</h2>
-<ol>
-<li>
-<p>当架构不能再去适应业务发展的需要时。</p>
-<p>重构系统,往往是我们已经对现有系统架构无可奈何之时,因为重构的前提往往是我们的系统已经部署到生产环境,虽然当前系统可能有问题,也有可能很烂,但是这很正常,没有一个系统的架构是完美无缺的,至少现在的它能在生产上跑,能满足现有业务需求,所以,<strong>能不动,尽量不去动</strong>它。但是如果业务发展就是很快,用户体系也日益增多或者现有架构可能满足,但是无法在未来几年之后达到业务发展以及用户的需求,这时候你就<strong>不能以技术的阻碍去影响公司业务的发展</strong>,此时就需要重构。</p>
-</li>
-<li>
-<p>前人挖坑无法填,代码紊乱无法直视</p>
-<p>我们作为一名优秀的程序员,往往会有一种情结,就是,前面人写的代码太垃圾,无法直视,举些例子比如服务api想怎么写怎么写,本来一个服务对用户负责,结果用户服务层还掺着订单接口,后来人员跟代码都能跟的一脸懵逼,简单总结就是<strong>开发一时爽,维护火葬场</strong>的代码。这种情况,我们可以去<strong>主张重构</strong>,但是也得想清楚会<strong>带来的风险以及代价</strong>。因为往往这种情况下,代码是可以在生产上运行的,业务人员或者用户不会去关心你代码怎么写的,只关心功能是不是正常。</p>
-</li>
-</ol>
-<h2 id="系统重构的风险因素">系统重构的风险因素</h2>
-<ol>
-<li>
-<p>系统重构对原有功能带来风险</p>
-<p>简单来说就是原有功能,可能正常使用,重构后,可能出现无法正常使用的问题,对用户体验感会非常不友好,往往就是,我以前能用啊,怎么现在不能用了!</p>
-</li>
-<li>
-<p>对于新的需求推迟开发上线</p>
-<p>重构的过程,我们先要需要保证原有功能不被影响,所以势必会导致对于新来的需求往后推迟,这也变相导致公司付出成本。</p>
-</li>
-<li>
-<p>重复测试问题</p>
-<p>系统重构后,不光是对未上线功能的测试,也要对原有功能进行再次测试,而且再次测试也可能存在测试不到位的风险。</p>
-</li>
-</ol>
-<h2 id="系统重构的准备工作">系统重构的准备工作</h2>
-<ol>
-<li>
-<p>足够了解原来的业务</p>
-<p>在重构之前,我们不仅仅只是要了解业务,还要<strong>真正的完全理解业务</strong>,以及现有<strong>系统的业务规模</strong></p>
-</li>
-<li>
-<p>对于技术的选型</p>
-<p>对于技术要做预研,可能我们喜欢追求新技术,但是新技术未必全是最好的,所以说没有最好的技术,只有最合适的技术,作为架构师的我们一定要记住一点就是,<strong>技术永远为业务服务</strong></p>
-</li>
-<li>
-<p>要做好基础的建设</p>
-<p>在系统重构之前,先要做好基础服务的建设,开发规范以及开发手册的撰写,CI(持续集成)/CD(持续交付)环境的搭建,这是一名架构师要做到的。这里的基础建设可以不用很全,但是一定要有,我们对于系统架构,要遵循着<strong>约定优于配置</strong>的原则,约定好了,工作效率以及代码质量也会提高。<strong>基础建设是系统重构最关键的环节</strong></p>
-</li>
-</ol>
-<h2 id="单体-All-in-one-还是微服务-Micro-Service">单体(All in one) 还是微服务(Micro Service)?</h2>
-<p>现在,分布式微服务的概念深入程序员的心中,因为不管是面试,还是应用,牵扯到这个就会显得高大上,那我们在架构的时候,是不是需要建设分布式微服务的体系呢,答案是不一定的,假设你的用户群体只有几万,日活跃可能几千,你把阿里或者字节的架构搬到你的系统作为基础架构,一定就好用吗? 答案同样是不一定,可能最后还不如你系统原本架构好用,所以,<strong>只有适合的才是最好的架构</strong></p>
-<blockquote>
-<p>参考:	沽泡Tom老师</p>
-</blockquote>
+                <h1>并发编程的艺术-线程可见性volatile</h1>
+<h2 id="简介">简介</h2>
+<p>在多线程环境下,两个线程对同一变量进行操作时,互相是不可见状态,不可见状态就会导致一个线程修改了这个共享变量,而另一个线程不知道你去修改了,就可能导致变量最终预期与实际不一致的情况。为了确保共享变量能够保证一致性,<code>volatile</code>为此而来,</p>
+<h2 id="示例">示例</h2>
+<p>在简介当中,我们知道了<code>volatile</code>是为了解决不可见性而来,在实际应用中,会带来什么问题呢? 举个简单的示例如下:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Boolean</span> TYPE <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>TYPE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"线程已启动"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    TYPE <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>代码中只创建了个简单的线程,当<code>TYPE</code>为true时,子线程会一直执行++操作,主线程改变TYPE为false,我们预期这个main方法执行后,应该为自动停止。但是实际结果中你会发现,这个代码会一直执行,永远循环下去。导致这个问题的原因就是线程<code>thread</code>并没有发现<code>TYPE</code>已经被主线程改变。那么如何解决问题呢?</p>
+<ul>
+<li>方案一  增加本文重点<code>volatile</code></li>
+<li>方案二  活性失败,比如在while循环中加入io操作,例如 <code>System.out.print</code></li>
+<li>方案三  增加JVM启动参数  <code>-Djava.compiler = NONE</code></li>
+</ul>
+<p>方案是有了,那怎么产生的呢?它们又是怎么解决的呢?</p>
+<h2 id="原因">原因</h2>
+<h3 id="编译器重排序">编译器重排序</h3>
+<p>说到原因,不得不说HosSpot虚拟机的两个即时编译器</p>
+<ul>
+<li>Client Compiler</li>
+<li>Server Compiler</li>
+</ul>
+<p>程序具体使用哪种编译器由JVM虚拟机来决定。</p>
+<p>其中,上述代码的问题点就出现与ServerCompiler编译器,它是一个面向服务端并且充分优化的高级编译器,包含不限于:</p>
+<ul>
+<li>无用代码消除（Dead Code Elimination）</li>
+<li>循环表达式外提（Loop Expression Hoisting）</li>
+<li>循环展开（Loop Unrolling）</li>
+</ul>
+<p>其中,<strong>循环表达式外提</strong>就是导致示例代码出现问题的根本原因,经过它编译后的代码变为了</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>TYPE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        	i<span class="token operator">++</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由此可以发现,经过它优化后,TYPE进入时为true,后续根本不会变化,所以其他线程对TYPE变更时,示例线程根本不会知道,所以我们可以采用<strong>方案三进行编译优化禁用</strong>,但是为了这一个小细节去影响整个全局的优化,代价是否有点大呢?</p>
+<h3 id="CPU高速缓存">CPU高速缓存</h3>
+<p>除编译器优化外,CPU的高速缓存机制也会导致可见性问题,但是在CPU层面又有总线锁,缓存锁的机制去解决这类问题,总线锁和缓存锁通过<code>Lock</code>信号触发，如果当前CPU支持缓存锁，则不会在总线上声明<code>Lock</code>信号，而是基于缓存一致性协议来保证缓存的一致性。如果CPU不支持缓存锁，则会在总线上声明<code>Lock</code>信号锁定总线，从而保证同一时刻只允许一个CPU对共享内存的读写操作。<code>volatile</code>就是通过此方式来解决可见性问题。</p>
+<h3 id="CPU指令重排序">CPU指令重排序</h3>
+<p>指令重排序,通俗来讲就是CPU在保证单线程情况下,重排序之后的运行结果与程序本身预期结果一致的前提下,进行重排序的一种机制。例如下面这篇示例:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> t <span class="token operator">=</span> i <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述代码我们可以知道,代码会从上到下依次执行, 但是i与y的执行顺序对于最终t的结果毫无影响,这时候就有可能发生指令重排序变为:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> t <span class="token operator">=</span> i <span class="token operator">+</span> y<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Volatile">Volatile</h2>
+<p>我们在TYPE加入volatile关键字</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Boolean</span> TYPE <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们通过汇编指令启动main方法,会得到下面的结果:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">0x00000207c9066087: lock add dword ptr [rsp],0h  ;*putstatic TYPE
+                                                ; - com.timeroar.blog.concurrent.voliat.VloliateThreadTest::&lt;clinit&gt;@4 (line 10)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>大家发现没，主线程去修改<code>TYPE</code>变量的值时，在修改命令前面会增加一个<code>Lock</code>信号，原因是<code>volatile</code>关键字会在JVM层面声明一个C++的<code>volatile</code>，得到这个声明后JVM会调用<code>storeload()</code>内存屏障方法,此方法会执行<code>lock</code>指令,将<code>volatile</code>声明的变量在CPU层面从Store Buffers中刷新到缓存行,这样当其他线程再去读取``volatile`声明的变量的值时，会从内存中或者其他缓存了此变量的缓存行中重新<br>
+加载，使得线程能够获得此变量最新的值。</p>
+<h3 id="Volatile的重排序规则">Volatile的重排序规则</h3>
+<p>volatile并不会在所有情况都限制重排序规则,我们用一张表来解释Volatile什么时候允许重排序,什么时候不允许</p>
+<table>
+<thead>
+<tr>
+<th>第一个操作\第二个操作</th>
+<th>普通读</th>
+<th>普通写</th>
+<th>Volatile读</th>
+<th>Volatile写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通读</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>普通写</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>Volatile读</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Volatile写</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>由图中展示,其实我们只需要记住三点即可:</p>
+<ul>
+<li>当第一个操作是<code>volatile</code>写时，且第二个操作是<code>volatile</code>读或写时，这两个操作不允许重排序。</li>
+<li>当第二个操作是<code>volatile</code>写时，不管第一个操作的读/写是普通变量还是<code>volatile</code>修饰的变量，都不允许这两个操作重排序。</li>
+<li>当第一个操作是<code>volatile</code>读时，不管第二个操作的读/写是普通变量还是<code>volatile</code>修饰的变量，都不允许这两个操作重排序。</li>
+</ul>
 
                 
             </div>
@@ -539,7 +607,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.timeroar.com/posts/33741.html">https://blog.timeroar.com/posts/33741.html</a>
+                    <a href="https://blog.timeroar.com/posts/29367.html">https://blog.timeroar.com/posts/29367.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,12 +645,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                                    <span class="chip bg-color">架构师</span>
+                                <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
+                                    <span class="chip bg-color">可见性</span>
                                 </a>
                             
-                                <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84/">
-                                    <span class="chip bg-color">系统重构</span>
+                                <a href="/tags/volatile/">
+                                    <span class="chip bg-color">volatile</span>
                                 </a>
                             
                         </div>
@@ -1020,16 +1088,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/65132.html">
+                <a href="/posts/29367.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/design.jpg" class="responsive-img" alt="架构师之路-七大软件设计的原则">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/volatile.jpg" class="responsive-img" alt="并发编程的艺术-线程可见性volatile">
                         
-                        <span class="card-title">架构师之路-七大软件设计的原则</span>
+                        <span class="card-title">并发编程的艺术-线程可见性volatile</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1039,9 +1108,62 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    并发编程
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
+                        <span class="chip bg-color">可见性</span>
+                    </a>
+                    
+                    <a href="/tags/volatile/">
+                        <span class="chip bg-color">volatile</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/35796.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/domain.jpg" class="responsive-img" alt="架构师之路-领域驱动设计DDD">
+                        
+                        <span class="card-title">架构师之路-领域驱动设计DDD</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1065,60 +1187,8 @@
                         <span class="chip bg-color">软件设计原则</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/13835.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/Security.jpg" class="responsive-img" alt="Spring Security的原理与探索">
-                        
-                        <span class="card-title">Spring Security的原理与探索</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/" class="post-category">
-                                    认证与授权
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Spring-Security/">
-                        <span class="chip bg-color">Spring Security</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/">
-                        <span class="chip bg-color">认证与授权</span>
-                    </a>
-                    
-                    <a href="/tags/Filter/">
-                        <span class="chip bg-color">Filter</span>
+                    <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B9%8B%E8%B7%AF/">
+                        <span class="chip bg-color">架构师之路</span>
                     </a>
                     
                 </div>

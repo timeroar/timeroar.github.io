@@ -6,7 +6,7 @@
   <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
   
   <link href="https://blog.timeroar.com/"/>
-  <updated>2021-12-02T14:17:17.515Z</updated>
+  <updated>2021-12-23T13:07:02.577Z</updated>
   <id>https://blog.timeroar.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>并发编程的艺术-线程可见性volatile</title>
+    <link href="https://blog.timeroar.com/posts/29367.html"/>
+    <id>https://blog.timeroar.com/posts/29367.html</id>
+    <published>2021-12-23T13:06:00.000Z</published>
+    <updated>2021-12-23T13:07:02.577Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;并发编程的艺术-线程可见性volatile&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="并发编程" scheme="https://blog.timeroar.com/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="可见性" scheme="https://blog.timeroar.com/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/"/>
+    
+    <category term="volatile" scheme="https://blog.timeroar.com/tags/volatile/"/>
+    
+  </entry>
   
   <entry>
     <title>架构师之路-领域驱动设计DDD</title>
