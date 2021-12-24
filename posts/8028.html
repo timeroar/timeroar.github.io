@@ -4,10 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="volatile,并发,可见性">
-    <meta name="description" content="并发编程的艺术-线程可见性volatile
-简介
-在多线程环境下,两个线程对同一变量进行操作时,互相是不可见状态,不可见状态就会导致一个线程修改了这个共享变量,而另一个线程不知道你去修改了,就可能导致变量最终预期与实际不一致的情况。为了确保">
+    <meta name="keywords" content="设计模式之原型模式,深克隆,浅克隆,复制">
+    <meta name="description" content="代码优雅之路-设计模式之原型模式
+概述
+在日常开发过程当中,我们难免会遇到类与类之间转换的过程,可能这两个类字段类型,名称只存在微小区别,甚至一模一样,比如DTO到Entity过程,这个时候就需要本文的重点模式-原型模式
+概念
+原型模式(P">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>并发编程的艺术-线程可见性volatile | TimeRoar的博客</title>
+    <title>设计模式之原型模式 | TimeRoar的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/libs/awesome/css/all.min.css">
@@ -268,12 +270,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/volatile.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/proto.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">并发编程的艺术-线程可见性volatile</h1>
+                    <h1 class="description center-align post-title">设计模式之原型模式</h1>
                 </div>
             </div>
         </div>
@@ -389,12 +391,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
-                                <span class="chip bg-color">可见性</span>
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
                             </a>
                         
-                            <a href="/tags/volatile/">
-                                <span class="chip bg-color">volatile</span>
+                            <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
+                                <span class="chip bg-color">代码优雅之路</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">原型模式</span>
                             </a>
                         
                     </div>
@@ -405,8 +411,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
-                                并发编程
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                设计模式
                             </a>
                         
                     </div>
@@ -418,28 +424,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2021-12-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2021-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -462,125 +468,109 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>并发编程的艺术-线程可见性volatile</h1>
-<h2 id="简介">简介</h2>
-<p>在多线程环境下,两个线程对同一变量进行操作时,互相是不可见状态,不可见状态就会导致一个线程修改了这个共享变量,而另一个线程不知道你去修改了,就可能导致变量最终预期与实际不一致的情况。为了确保共享变量能够保证一致性,<code>volatile</code>为此而来,</p>
-<h2 id="示例">示例</h2>
-<p>在简介当中,我们知道了<code>volatile</code>是为了解决不可见性而来,在实际应用中,会带来什么问题呢? 举个简单的示例如下:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Boolean</span> TYPE <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
-    <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>TYPE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    thread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"线程已启动"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    TYPE <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>代码中只创建了个简单的线程,当<code>TYPE</code>为true时,子线程会一直执行++操作,主线程改变TYPE为false,我们预期这个main方法执行后,应该为自动停止。但是实际结果中你会发现,这个代码会一直执行,永远循环下去。导致这个问题的原因就是线程<code>thread</code>并没有发现<code>TYPE</code>已经被主线程改变。那么如何解决问题呢?</p>
-<ul>
-<li>方案一  增加本文重点<code>volatile</code></li>
-<li>方案二  活性失败,比如在while循环中加入io操作,例如 <code>System.out.print</code></li>
-<li>方案三  增加JVM启动参数  <code>-Djava.compiler = NONE</code></li>
-</ul>
-<p>方案是有了,那怎么产生的呢?它们又是怎么解决的呢?</p>
-<h2 id="原因">原因</h2>
-<h3 id="编译器重排序">编译器重排序</h3>
-<p>说到原因,不得不说HosSpot虚拟机的两个即时编译器</p>
-<ul>
-<li>Client Compiler</li>
-<li>Server Compiler</li>
-</ul>
-<p>程序具体使用哪种编译器由JVM虚拟机来决定。</p>
-<p>其中,上述代码的问题点就出现与ServerCompiler编译器,它是一个面向服务端并且充分优化的高级编译器,包含不限于:</p>
-<ul>
-<li>无用代码消除（Dead Code Elimination）</li>
-<li>循环表达式外提（Loop Expression Hoisting）</li>
-<li>循环展开（Loop Unrolling）</li>
-</ul>
-<p>其中,<strong>循环表达式外提</strong>就是导致示例代码出现问题的根本原因,经过它编译后的代码变为了</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>TYPE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        	i<span class="token operator">++</span><span class="token punctuation">;</span>
-    	<span class="token punctuation">&#125;</span>
+                <h1>代码优雅之路-设计模式之原型模式</h1>
+<h2 id="概述">概述</h2>
+<p>在日常开发过程当中,我们难免会遇到类与类之间转换的过程,可能这两个类字段类型,名称只存在微小区别,甚至一模一样,比如DTO到Entity过程,这个时候就需要本文的重点模式-<strong>原型模式</strong></p>
+<h3 id="概念">概念</h3>
+<p>原型模式(Prototype Pattern) 官方原文为:</p>
+<blockquote>
+<p>Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.</p>
+</blockquote>
+<p>意思大概是当我们使用原型实例要指定创建对象种类的时候，通过复制该原型创建新对象。</p>
+<h3 id="核心">核心</h3>
+<p>原型模式的核心是需要拷贝原型对象,且不能通过new对象的形式getter,setter来进行拷贝,需将原型对象通过内存二进制流的形式进行拷贝,二进制流的形式无需经历new对象的构造过程,性能会些许提升。</p>
+<h2 id="应用场景">应用场景</h2>
+<p>原型模式适用(包含但不限于)以下场景</p>
+<ol>
+<li>体力劳动过剩</li>
+<li>类初始化消耗资源过多</li>
+<li>构造方法过于复杂</li>
+</ol>
+<p>看到这,可能会问,体力劳动过剩是什么鬼? 大家看一篇代码示例:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">OldDomain</span> old <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OldDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>省略set过程
+        
+    <span class="token class-name">NewDomain</span> newDomain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NewDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span>old<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>old<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>old<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setIdCard</span><span class="token punctuation">(</span>old<span class="token punctuation">.</span><span class="token function">getIdCard</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setPhone</span><span class="token punctuation">(</span>old<span class="token punctuation">.</span><span class="token function">getPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>疯不疯? 况且真实项目情况时,可能会有几十个,甚至嵌套了N个模型类吧,一个一个去getter,setter,即使你体力劳动过剩也不能这么玩吧。但是这种方式不能完全否定,为什么呢,文末说明。</p>
+<h2 id="使用">使用</h2>
+<p>JDK为我们提供了一个原型接口Cloneable:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>让我们的原型对象去实现它并重写<code>clone()</code>方法;</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NewDomain</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/** 名字 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token comment">/** 年龄 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> age<span class="token punctuation">;</span>
+    <span class="token comment">/** 地址 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> address<span class="token punctuation">;</span>
+    <span class="token comment">/** 电话 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> phone<span class="token punctuation">;</span>
+    <span class="token comment">/** 身份证 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> idCard<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token class-name">NewDomain</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">NewDomain</span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>由此可以发现,经过它优化后,TYPE进入时为true,后续根本不会变化,所以其他线程对TYPE变更时,示例线程根本不会知道,所以我们可以采用<strong>方案三进行编译优化禁用</strong>,但是为了这一个小细节去影响整个全局的优化,代价是否有点大呢?</p>
-<h3 id="CPU高速缓存">CPU高速缓存</h3>
-<p>除编译器优化外,CPU的高速缓存机制也会导致可见性问题,但是在CPU层面又有总线锁,缓存锁的机制去解决这类问题,总线锁和缓存锁通过<code>Lock</code>信号触发，如果当前CPU支持缓存锁，则不会在总线上声明<code>Lock</code>信号，而是基于缓存一致性协议来保证缓存的一致性。如果CPU不支持缓存锁，则会在总线上声明<code>Lock</code>信号锁定总线，从而保证同一时刻只允许一个CPU对共享内存的读写操作。<code>volatile</code>就是通过此方式来解决可见性问题。</p>
-<h3 id="CPU指令重排序">CPU指令重排序</h3>
-<p>指令重排序,通俗来讲就是CPU在保证单线程情况下,重排序之后的运行结果与程序本身预期结果一致的前提下,进行重排序的一种机制。例如下面这篇示例:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> t <span class="token operator">=</span> i <span class="token operator">+</span> y<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上述代码我们可以知道,代码会从上到下依次执行, 但是i与y的执行顺序对于最终t的结果毫无影响,这时候就有可能发生指令重排序变为:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> t <span class="token operator">=</span> i <span class="token operator">+</span> y<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="Volatile">Volatile</h2>
-<p>我们在TYPE加入volatile关键字</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Boolean</span> TYPE <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>我们通过汇编指令启动main方法,会得到下面的结果:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">0x00000207c9066087: lock add dword ptr [rsp],0h  ;*putstatic TYPE
-                                                ; - com.timeroar.blog.concurrent.voliat.VloliateThreadTest::&lt;clinit&gt;@4 (line 10)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>大家发现没，主线程去修改<code>TYPE</code>变量的值时，在修改命令前面会增加一个<code>Lock</code>信号，原因是<code>volatile</code>关键字会在JVM层面声明一个C++的<code>volatile</code>，得到这个声明后JVM会调用<code>storeload()</code>内存屏障方法,此方法会执行<code>lock</code>指令,将<code>volatile</code>声明的变量在CPU层面从Store Buffers中刷新到缓存行,这样当其他线程再去读取``volatile`声明的变量的值时，会从内存中或者其他缓存了此变量的缓存行中重新<br>
-加载，使得线程能够获得此变量最新的值。</p>
-<h3 id="Volatile的重排序规则">Volatile的重排序规则</h3>
-<p>volatile并不会在所有情况都限制重排序规则,我们用一张表来解释Volatile什么时候允许重排序,什么时候不允许</p>
-<table>
-<thead>
-<tr>
-<th>第一个操作\第二个操作</th>
-<th>普通读</th>
-<th>普通写</th>
-<th>Volatile读</th>
-<th>Volatile写</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通读</td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>普通写</td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>Volatile读</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>Volatile写</td>
-<td></td>
-<td></td>
-<td>X</td>
-<td>X</td>
-</tr>
-</tbody>
-</table>
-<p>由图中展示,其实我们只需要记住三点即可:</p>
-<ul>
-<li>当第一个操作是<code>volatile</code>写时，且第二个操作是<code>volatile</code>读或写时，这两个操作不允许重排序。</li>
-<li>当第二个操作是<code>volatile</code>写时，不管第一个操作的读/写是普通变量还是<code>volatile</code>修饰的变量，都不允许这两个操作重排序。</li>
-<li>当第一个操作是<code>volatile</code>读时，不管第二个操作的读/写是普通变量还是<code>volatile</code>修饰的变量，都不允许这两个操作重排序。</li>
-</ul>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们创建原型对象并进行克隆操作:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">NewDomain</span> newDomain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NewDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token string">"中国"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token string">"18"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"法外狂徒张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setIdCard</span><span class="token punctuation">(</span><span class="token string">"112233"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setPhone</span><span class="token punctuation">(</span><span class="token string">"1100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">NewDomain</span> cloneNewDomain <span class="token operator">=</span> newDomain<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第一个对象---------"</span> <span class="token operator">+</span> newDomain<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"克隆对象----------"</span> <span class="token operator">+</span> cloneNewDomain<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们可以得到如下输出</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">第一个对象---------法外狂徒张三
+克隆对象----------法外狂徒张三<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>至此,我们发现已经克隆成功,但是这种形式只是浅克隆形式,也就是内存地址引用,原型发生变化,克隆对象也会跟着变化,如:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">NewDomain</span> newDomain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NewDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token string">"中国"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"法外狂徒张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">setCars</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"自行车"</span><span class="token punctuation">,</span><span class="token string">"三轮车"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">NewDomain</span> cloneNewDomain <span class="token operator">=</span> newDomain<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第一个对象---------"</span> <span class="token operator">+</span> newDomain<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"克隆对象----------"</span> <span class="token operator">+</span> cloneNewDomain<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newDomain<span class="token punctuation">.</span><span class="token function">getCars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"电动车"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第一个对象赋值后---------"</span> <span class="token operator">+</span> newDomain<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"克隆对象----------"</span> <span class="token operator">+</span> cloneNewDomain<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果如下</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">第一个对象<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token punctuation">[</span>自行车<span class="token punctuation">,</span> 三轮车<span class="token punctuation">]</span>
+克隆对象<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token punctuation">[</span>自行车<span class="token punctuation">,</span> 三轮车<span class="token punctuation">]</span>
+第一个对象赋值后<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token punctuation">[</span>自行车<span class="token punctuation">,</span> 三轮车<span class="token punctuation">,</span> 电动车<span class="token punctuation">]</span>
+克隆对象<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token punctuation">[</span>自行车<span class="token punctuation">,</span> 三轮车<span class="token punctuation">,</span> 电动车<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>你会发现,第一个对象发生改变后,被克隆对象也发生了改变,如果你的新对象不想受原型对象影响,就需要采用<strong>深克隆形式</strong>,深克隆形式有两种一种是JSON序列化,另一种则是流读取输出的形式,现在已二进制流读取</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">NewDomain</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ClassNotFoundException</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ByteArrayOutputStream</span> byteArrayOutputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ObjectOutputStream</span> objectOutputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>byteArrayOutputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    objectOutputStream<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">ByteArrayInputStream</span> byteArrayInputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>byteArrayOutputStream<span class="token punctuation">.</span><span class="token function">toByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ObjectInputStream</span> objectInputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span>byteArrayInputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">NewDomain</span><span class="token punctuation">)</span> objectInputStream<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将上面的<code>newDomain.clone();</code>变更为<code>newDomain.deepClone();</code> 执行结果如下:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">第一个对象---------[自行车, 三轮车]
+克隆对象----------[自行车, 三轮车]
+第一个对象赋值后---------[自行车, 三轮车, 电动车]
+克隆对象----------[自行车, 三轮车]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>你会发现克隆对象不再受原型对象的改变而改变。</p>
+<h2 id="结言">结言</h2>
+<p>原型模式的优点就是性能还不错,毕竟是基于二进制流,比直接new对象性能上要提升许多,缺点也很明显,如果想实现深克隆,势必要每个类都需书写深克隆方法,在对象嵌套过程当中,实现过程势必繁琐。但是我们在工作当中,深克隆的方式避免不了,而且我们在工作中往往不去在每个对象当中去书写深克隆方法,为了方便,我们可能通过反射来获取,但这些深克隆方式势必会影响性能,相比之下,getter,setter的效率反而比较高。所以原型模式为我们提供了一种理念,我们可以根据实际需求去运用。</p>
 
                 
             </div>
@@ -607,7 +597,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.timeroar.com/posts/29367.html">https://blog.timeroar.com/posts/29367.html</a>
+                    <a href="https://blog.timeroar.com/posts/8028.html">https://blog.timeroar.com/posts/8028.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -645,12 +635,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
-                                    <span class="chip bg-color">可见性</span>
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
                                 </a>
                             
-                                <a href="/tags/volatile/">
-                                    <span class="chip bg-color">volatile</span>
+                                <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
+                                    <span class="chip bg-color">代码优雅之路</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">原型模式</span>
                                 </a>
                             
                         </div>
@@ -1088,9 +1082,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/8028.html">
                     <div class="card-image">
@@ -1107,9 +1102,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1122,6 +1117,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1148,12 +1144,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/35796.html">
+                <a href="/posts/29367.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/domain.jpg" class="responsive-img" alt="架构师之路-领域驱动设计DDD">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/volatile.jpg" class="responsive-img" alt="并发编程的艺术-线程可见性volatile">
                         
-                        <span class="card-title">架构师之路-领域驱动设计DDD</span>
+                        <span class="card-title">并发编程的艺术-线程可见性volatile</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1164,14 +1160,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="post-category">
-                                    架构师
+                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    并发编程
                                 </a>
                             
                             
@@ -1181,16 +1177,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                        <span class="chip bg-color">架构师</span>
+                    <a href="/tags/%E5%8F%AF%E8%A7%81%E6%80%A7/">
+                        <span class="chip bg-color">可见性</span>
                     </a>
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-                        <span class="chip bg-color">软件设计原则</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B9%8B%E8%B7%AF/">
-                        <span class="chip bg-color">架构师之路</span>
+                    <a href="/tags/volatile/">
+                        <span class="chip bg-color">volatile</span>
                     </a>
                     
                 </div>

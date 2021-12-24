@@ -6,7 +6,7 @@
   <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
   
   <link href="https://blog.timeroar.com/"/>
-  <updated>2021-12-23T13:07:02.577Z</updated>
+  <updated>2021-12-24T01:42:31.500Z</updated>
   <id>https://blog.timeroar.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>设计模式之原型模式</title>
+    <link href="https://blog.timeroar.com/posts/8028.html"/>
+    <id>https://blog.timeroar.com/posts/8028.html</id>
+    <published>2021-12-24T15:25:01.000Z</published>
+    <updated>2021-12-24T01:42:31.500Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;代码优雅之路-设计模式之原型模式&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://blog.timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="设计模式" scheme="https://blog.timeroar.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="代码优雅之路" scheme="https://blog.timeroar.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/"/>
+    
+    <category term="原型模式" scheme="https://blog.timeroar.com/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>并发编程的艺术-线程可见性volatile</title>
     <link href="https://blog.timeroar.com/posts/29367.html"/>
     <id>https://blog.timeroar.com/posts/29367.html</id>
     <published>2021-12-23T13:06:00.000Z</published>
-    <updated>2021-12-23T13:07:02.577Z</updated>
+    <updated>2021-12-23T13:09:44.510Z</updated>
     
     
       
