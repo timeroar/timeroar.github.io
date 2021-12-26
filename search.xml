@@ -47,11 +47,11 @@
       
         <tags>
             
-            <tag> 原型模式 </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 代码优雅之路 </tag>
+            
+            <tag> 原型模式 </tag>
             
         </tags>
       
@@ -271,11 +271,11 @@
       
         <tags>
             
+            <tag> 工厂模式 </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 代码优雅之路 </tag>
-            
-            <tag> 工厂模式 </tag>
             
         </tags>
       

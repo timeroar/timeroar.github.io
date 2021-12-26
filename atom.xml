@@ -6,7 +6,7 @@
   <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
   
   <link href="https://blog.timeroar.com/"/>
-  <updated>2021-12-26T14:43:52.669Z</updated>
+  <updated>2021-12-26T14:44:55.535Z</updated>
   <id>https://blog.timeroar.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.timeroar.com/posts/23173.html"/>
     <id>https://blog.timeroar.com/posts/23173.html</id>
     <published>2021-12-26T14:43:32.000Z</published>
-    <updated>2021-12-26T14:43:52.669Z</updated>
+    <updated>2021-12-26T14:44:55.535Z</updated>
     
     
       
@@ -66,11 +66,11 @@
     <category term="设计模式" scheme="https://blog.timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
-    <category term="原型模式" scheme="https://blog.timeroar.com/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    
     <category term="设计模式" scheme="https://blog.timeroar.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     <category term="代码优雅之路" scheme="https://blog.timeroar.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/"/>
+    
+    <category term="原型模式" scheme="https://blog.timeroar.com/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -306,11 +306,11 @@
     <category term="设计模式" scheme="https://blog.timeroar.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
+    <category term="工厂模式" scheme="https://blog.timeroar.com/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
     <category term="设计模式" scheme="https://blog.timeroar.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     <category term="代码优雅之路" scheme="https://blog.timeroar.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/"/>
-    
-    <category term="工厂模式" scheme="https://blog.timeroar.com/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
