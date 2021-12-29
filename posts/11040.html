@@ -4,13 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="QPS,TPS,高并发,并发,时间片,线程,进程,线程的生命周期">
-    <meta name="description" content="并发编程的探索
-简介
-顾名思义,并发就是指当前的系统,能够同时承载的访问数量。通常会细定义为TPS与QPS
+    <meta name="keywords" content="网络通讯,TCP四层概念,OSI七层模型">
+    <meta name="description" content="网络通讯-大白话理解OSI七层模型与TCP/IP四层概念
+网络分层
+我们在架构设计,模型设计时都会选择分层设计,因为他会给我们带来很多好处,比如:
 
-TPS(Transaction Processing Systems): 每秒事务处理数量
-QPS(Query Processin">
+高内聚低耦合
+每一个层单一职责
+提升复用性
+
+所以在网络通讯协议上也有分层的概念
+OSI七">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +26,7 @@ QPS(Query Processin">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>并发编程的探索 | TimeRoar的博客</title>
+    <title>网络通讯-大白话理解OSI七层模型与TCP四层概念 | TimeRoar的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.4/libs/awesome/css/all.min.css">
@@ -271,12 +275,12 @@ QPS(Query Processin">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/concurrent.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/net_base.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">并发编程的探索</h1>
+                    <h1 class="description center-align post-title">网络通讯-大白话理解OSI七层模型与TCP四层概念</h1>
                 </div>
             </div>
         </div>
@@ -392,16 +396,12 @@ QPS(Query Processin">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B9%B6%E5%8F%91/">
-                                <span class="chip bg-color">并发</span>
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/">
+                                <span class="chip bg-color">网络通讯</span>
                             </a>
                         
-                            <a href="/tags/%E7%BA%BF%E7%A8%8B/">
-                                <span class="chip bg-color">线程</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%97%B6%E9%97%B4%E7%89%87/">
-                                <span class="chip bg-color">时间片</span>
+                            <a href="/tags/TCP-IP/">
+                                <span class="chip bg-color">TCP/IP</span>
                             </a>
                         
                     </div>
@@ -412,8 +412,8 @@ QPS(Query Processin">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
-                                并发编程
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/" class="post-category">
+                                网络通讯
                             </a>
                         
                     </div>
@@ -425,28 +425,28 @@ QPS(Query Processin">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-12-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-06
+                    2021-12-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    816
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 
@@ -469,97 +469,59 @@ QPS(Query Processin">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>并发编程的探索</h1>
-<h2 id="简介">简介</h2>
-<p>顾名思义,并发就是指当前的系统,能够同时承载的访问数量。通常会细定义为TPS与QPS</p>
+                <h1>网络通讯-大白话理解OSI七层模型与TCP/IP四层概念</h1>
+<h2 id="网络分层">网络分层</h2>
+<p>我们在架构设计,模型设计时都会选择分层设计,因为他会给我们带来很多好处,比如:</p>
 <ul>
-<li>TPS(Transaction Processing Systems): 每秒事务处理数量</li>
-<li>QPS(Query Processing Systems) : 每秒查询处理数量</li>
+<li>高内聚低耦合</li>
+<li>每一个层单一职责</li>
+<li>提升复用性</li>
 </ul>
-<p>当然,互联网上对于TPS与QPS还有更细化的解释:</p>
-<blockquote>
-<p>Tps即每秒处理事务数，包括了<br>
-1、用户请求服务器<br>
-2、服务器自己的内部查询等处理<br>
-3、服务器返回给用户<br>
-这三个过程，每秒能够完成N个这三个过程，Tps也就是N；</p>
-<p>QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入QPS之中。每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准<br>
-一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。<br>
-如果是对一个接口（单场景）压测，且这个接口内部不会再去请求其它接口，那么TPS等于QPS，否则，TPS不等于QPS</p>
-</blockquote>
-<h2 id="需求">需求</h2>
-<h3 id="硬件需求">硬件需求</h3>
-<p>一个系统能支持多少的并发量,除了本身软件的架构设计以及代码外,最重要的还是硬件的支撑,而硬件就是我们所熟知的现今计算机基本组成,即硬盘、内存、CPU、网卡以及通讯提供商给予的宽带种类、速率。当硬件达到瓶颈时我们也可以横向扩展,就是我们所说的集群。</p>
-<h3 id="软件需求">软件需求</h3>
-<p>软件需求依托于硬件,再多的优化也只能在当前硬件的极限环境内波动,不可能超过硬件的承受范围,这个承受范围的衡量标准,就是<strong>RT(Response Time)</strong> 响应时间。软件方面的优化思路,就是要充分利用好硬件,<strong>多线程</strong>的异步执行,就是充分利用硬件提高并发方式的其中之一。</p>
-<h2 id="线程与进程">线程与进程</h2>
-<p>一个<strong>进程</strong>可以创建多个线程,而<strong>线程</strong>是操作系统进行运算和调度的最小单元,多个线程可以并行执行,而并行执行的数量,原来线程的数量由CPU的核心数决定,但是Intel的超线程技术出来后,这个概念就不再固定,变成了跟CPU线程数决定,也就是我们通常买CPU时所听说的8核16线程。</p>
-<h2 id="并发与并行">并发与并行</h2>
+<p>所以在网络通讯协议上也有分层的概念</p>
+<h2 id="OSI七层模型">OSI七层模型</h2>
+<p>OSI是国际标准化组织制定的一个用于计算机或通讯系统间互联的标准体系,它的七层从高到低分别为:</p>
 <ul>
-<li><strong>并行</strong> 并行由CPU的核心数或者线程数决定,意味着可以同时执行的任务数量</li>
-<li><strong>并发</strong> 并发则是只同一时间段内在多个线程内同时执行的数量。由于并行数量的限制,CPU则会通过<strong>时间片切换</strong>的方式来同时执行这些超过本身并行数量的任务。</li>
+<li>应用层 : 网络服务与最终用户的一个接口,为应用程序提供服务。</li>
+<li>表示层: 数据的表示、安全、压缩、加密。</li>
+<li>会话层: 建立、管理、维护会话</li>
+<li>传输层: 定义传输数据的协议端口号， 建立、管理、维护端对端的链接</li>
+<li>网络层: 逻辑地址/IP选址,路由</li>
+<li>数据链路层: 建立逻辑连接、进行硬件地址寻址,提供介质访问与链路管理</li>
+<li>物理层: 物理硬件,以二进制流的形式存在。</li>
 </ul>
-<h2 id="时间片轮转调度">时间片轮转调度</h2>
-<p>时间片轮转调度,就是我们经常说的时间片切换,引用百度百科含义就是</p>
-<blockquote>
-<p>​	时间片轮转调度是一种最古老，最简单，最公平且使用最广的算法。每个进程被分配一个时间段，称作它的时间片，即该进程允许运行的时间。如果在时间片结束时进程还在运行，则CPU将被剥夺并分配给另一个进程。如果进程在时间片结束前阻塞或结束，则CPU当即进行切换。调度程序所要做的就是维护一张就绪进程列表，当进程用完它的时间片后，它被移到队列的末尾。</p>
-<p>时间片轮转调度中唯一有趣的一点是时间片的长度。从一个进程切换到另一个进程是需要一定时间的–保存和装入寄存器值及内存映像，更新各种表格和队列等。</p>
-</blockquote>
-<p>时间片在没有干预的情况下,每段时间片执行时长都是固定的,进程的切换需要耗费较大的资源,而线程的切换只需保存少量寄存器的内容,但是即使这样,时间片的切换依旧需要耗费少量时间,这是不可避免地。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/image-20211031214638502.png" alt="时间片切换" title="时间片切换"></p>
-<h2 id="创建线程">创建线程</h2>
-<p>博主是一名默默无闻的Java程序员,故以Java代码举例创建线程的其中三种方式</p>
-<h3 id="继承Thread类">继承Thread类</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadMethod1</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"线程启动了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">ThreadMethod1</span> threadMethod1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadMethod1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        threadMethod1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>由代码可知,run方法为具体执行的逻辑,而start则为启动线程</p>
-<h3 id="实现Runnable接口">实现Runnable接口</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadMethod2</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"线程-实现Runnable接口方式运行成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ThreadMethod2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        thread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>由代码可知,实现Runnable接口的方式仍然需要Thread类中的start方法去启动并且这两类创建方式均没有返回值,场景用于无需关心执行结果的场景。</p>
-<h3 id="实现Callable接口">实现Callable接口</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadMethod3</span> <span class="token keyword">implements</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"当前线程执行成功,这个是返回结果"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ExecutionException</span><span class="token punctuation">,</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">ThreadMethod3</span> threadMethod3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadMethod3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> futureTask <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>threadMethod3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>futureTask<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        thread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>futureTask<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Callable接口提供了一个带返回值的call方法,返回类型由实现Callable的泛型决定,并用FutureTask类来获取未来任务的结果。</p>
-<h2 id="线程的生命周期">线程的生命周期</h2>
-<p>本文已Java语言距离,在Java中,线程一共有6种状态</p>
+<h2 id="TCP-IP四层概念">TCP/IP四层概念</h2>
+<p>相比较七层模型,TCP简化为四层模型概念,从高到低分别为:</p>
 <ul>
-<li>New				新生</li>
-<li>Runnable       运行</li>
-<li>Blocked          阻塞</li>
-<li>Waiting           等待</li>
-<li>TimedWaiting  超时等待</li>
-<li>Terminated     结束</li>
+<li>应用层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>接口链路层</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/concurent.png" alt="线程的生命周期示意图" title="线程的生命周期示意图"></p>
+<p>它与OSI对照与协议族如下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/image-20211229220446786.png" alt="七层模型与四层概念"></p>
+<p>单纯说四层协议,可能非常的抽象,我们已我们日常code的代码来更直观的方式了解TCP/IP的四层协议,流程图如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/TCP.png" alt="TCP四层概念模型"></p>
+<p>是不是一目了然了,应用层将协议,请求方法请求体进行封装,传输层获取发起端端口号以及目标服务器端口继续包装,到网络层后,将来源IP以及目标服务器IP继续包装到报文里,后进入接口链路层,通过IP需要传输到目标机器,这里的网关就泛指运营商,它会层层跳转,直到跳转到目标地址。</p>
+<p>设想下,我们要进行数据通讯是不是首先要建立链接,建立连接的过程就是TCP/IP的三次握手</p>
+<h2 id="三次握手">三次握手</h2>
+<p>三次握手是为了双向通讯。流程图如下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="三次握手"></p>
+<ul>
+<li>首先客户端向服务器监听的端口发送SYN包以及序列</li>
+<li>服务端返回给客户端ACK标识,标识服务端已经接收到客户端发过来的包</li>
+<li>客户端确认收到后,返回给服务端,这样服务端也知道客户端也收到了</li>
+</ul>
+<p>建立完成后开始数据传输。</p>
+<h2 id="四次挥手">四次挥手</h2>
+<p>目的跟三次握手一样,为了确认双方都已经断开。流程图如下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="四次挥手"></p>
+<p>客户端主动关闭TCP链接:</p>
+<ul>
+<li>客户端发起FIN包通知服务端要进行关闭了</li>
+<li>服务端收到后发送ACK信息通知客户端我知道了,这时客户端进入FIN_WAIT_2状态,白话就是我已经准备好断开了</li>
+<li>服务端通知应用后开始尝试关闭,然后FIN通知客户端可以关闭了</li>
+<li>客户端收到信息后,发送ACK信息给服务端说明我已经可以关了,服务端收到后就可以正式关闭了</li>
+</ul>
 
                 
             </div>
@@ -586,7 +548,7 @@ QPS(Query Processin">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.timeroar.com/posts/56241.html">https://blog.timeroar.com/posts/56241.html</a>
+                    <a href="https://blog.timeroar.com/posts/11040.html">https://blog.timeroar.com/posts/11040.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,16 +586,12 @@ QPS(Query Processin">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B9%B6%E5%8F%91/">
-                                    <span class="chip bg-color">并发</span>
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/">
+                                    <span class="chip bg-color">网络通讯</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BA%BF%E7%A8%8B/">
-                                    <span class="chip bg-color">线程</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%97%B6%E9%97%B4%E7%89%87/">
-                                    <span class="chip bg-color">时间片</span>
+                                <a href="/tags/TCP-IP/">
+                                    <span class="chip bg-color">TCP/IP</span>
                                 </a>
                             
                         </div>
@@ -1071,16 +1029,17 @@ QPS(Query Processin">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/13835.html">
+                <a href="/posts/11040.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/Security.jpg" class="responsive-img" alt="Spring Security的原理与探索">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/net_base.jpg" class="responsive-img" alt="网络通讯-大白话理解OSI七层模型与TCP四层概念">
                         
-                        <span class="card-title">Spring Security的原理与探索</span>
+                        <span class="card-title">网络通讯-大白话理解OSI七层模型与TCP四层概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1090,34 +1049,31 @@ QPS(Query Processin">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/" class="post-category">
-                                    认证与授权
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/" class="post-category">
+                                    网络通讯
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Security/">
-                        <span class="chip bg-color">Spring Security</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/">
+                        <span class="chip bg-color">网络通讯</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/">
-                        <span class="chip bg-color">认证与授权</span>
-                    </a>
-                    
-                    <a href="/tags/Filter/">
-                        <span class="chip bg-color">Filter</span>
+                    <a href="/tags/TCP-IP/">
+                        <span class="chip bg-color">TCP/IP</span>
                     </a>
                     
                 </div>
@@ -1131,12 +1087,12 @@ QPS(Query Processin">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/20533.html">
+                <a href="/posts/48722.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/factory.jpg" class="responsive-img" alt="设计模式之工厂模式">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/%E7%BA%BF%E7%A8%8B%E6%B1%A0640.jpg" class="responsive-img" alt="并发编程的艺术-线程池的原理与分析">
                         
-                        <span class="card-title">设计模式之工厂模式</span>
+                        <span class="card-title">并发编程的艺术-线程池的原理与分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1147,14 +1103,14 @@ QPS(Query Processin">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
+                            <a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    并发编程
                                 </a>
                             
                             
@@ -1164,16 +1120,12 @@ QPS(Query Processin">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">工厂模式</span>
+                    <a href="/tags/ThreadPool/">
+                        <span class="chip bg-color">ThreadPool</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E9%9B%85%E4%B9%8B%E8%B7%AF/">
-                        <span class="chip bg-color">代码优雅之路</span>
+                    <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                        <span class="chip bg-color">线程池</span>
                     </a>
                     
                 </div>

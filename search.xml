@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>网络通讯-大白话理解OSI七层模型与TCP四层概念</title>
+      <link href="/posts/11040.html"/>
+      <url>/posts/11040.html</url>
+      
+        <content type="html"><![CDATA[<h1>网络通讯-大白话理解OSI七层模型与TCP/IP四层概念</h1><h2 id="网络分层">网络分层</h2><p>我们在架构设计,模型设计时都会选择分层设计,因为他会给我们带来很多好处,比如:</p><ul><li>高内聚低耦合</li><li>每一个层单一职责</li><li>提升复用性</li></ul><p>所以在网络通讯协议上也有分层的概念</p><h2 id="OSI七层模型">OSI七层模型</h2><p>OSI是国际标准化组织制定的一个用于计算机或通讯系统间互联的标准体系,它的七层从高到低分别为:</p><ul><li>应用层 : 网络服务与最终用户的一个接口,为应用程序提供服务。</li><li>表示层: 数据的表示、安全、压缩、加密。</li><li>会话层: 建立、管理、维护会话</li><li>传输层: 定义传输数据的协议端口号， 建立、管理、维护端对端的链接</li><li>网络层: 逻辑地址/IP选址,路由</li><li>数据链路层: 建立逻辑连接、进行硬件地址寻址,提供介质访问与链路管理</li><li>物理层: 物理硬件,以二进制流的形式存在。</li></ul><h2 id="TCP-IP四层概念">TCP/IP四层概念</h2><p>相比较七层模型,TCP简化为四层模型概念,从高到低分别为:</p><ul><li>应用层</li><li>传输层</li><li>网络层</li><li>接口链路层</li></ul><p>它与OSI对照与协议族如下:</p><p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/image-20211229220446786.png" alt="七层模型与四层概念"></p><p>单纯说四层协议,可能非常的抽象,我们已我们日常code的代码来更直观的方式了解TCP/IP的四层协议,流程图如下</p><p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/TCP.png" alt="TCP四层概念模型"></p><p>是不是一目了然了,应用层将协议,请求方法请求体进行封装,传输层获取发起端端口号以及目标服务器端口继续包装,到网络层后,将来源IP以及目标服务器IP继续包装到报文里,后进入接口链路层,通过IP需要传输到目标机器,这里的网关就泛指运营商,它会层层跳转,直到跳转到目标地址。</p><p>设想下,我们要进行数据通讯是不是首先要建立链接,建立连接的过程就是TCP/IP的三次握手</p><h2 id="三次握手">三次握手</h2><p>三次握手是为了双向通讯。流程图如下:</p><p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="三次握手"></p><ul><li>首先客户端向服务器监听的端口发送SYN包以及序列</li><li>服务端返回给客户端ACK标识,标识服务端已经接收到客户端发过来的包</li><li>客户端确认收到后,返回给服务端,这样服务端也知道客户端也收到了</li></ul><p>建立完成后开始数据传输。</p><h2 id="四次挥手">四次挥手</h2><p>目的跟三次握手一样,为了确认双方都已经断开。流程图如下:</p><p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="四次挥手"></p><p>客户端主动关闭TCP链接:</p><ul><li>客户端发起FIN包通知服务端要进行关闭了</li><li>服务端收到后发送ACK信息通知客户端我知道了,这时客户端进入FIN_WAIT_2状态,白话就是我已经准备好断开了</li><li>服务端通知应用后开始尝试关闭,然后FIN通知客户端可以关闭了</li><li>客户端收到信息后,发送ACK信息给服务端说明我已经可以关了,服务端收到后就可以正式关闭了</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络通讯 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络通讯 </tag>
+            
+            <tag> TCP/IP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>并发编程的艺术-线程池的原理与分析</title>
       <link href="/posts/48722.html"/>
       <url>/posts/48722.html</url>

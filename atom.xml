@@ -6,7 +6,7 @@
   <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
   
   <link href="https://blog.timeroar.com/"/>
-  <updated>2021-12-28T15:32:09.066Z</updated>
+  <updated>2021-12-29T15:14:34.771Z</updated>
   <id>https://blog.timeroar.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>网络通讯-大白话理解OSI七层模型与TCP四层概念</title>
+    <link href="https://blog.timeroar.com/posts/11040.html"/>
+    <id>https://blog.timeroar.com/posts/11040.html</id>
+    <published>2021-12-29T15:16:23.000Z</published>
+    <updated>2021-12-29T15:14:34.771Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;网络通讯-大白话理解OSI七层模型与TCP/IP四层概念&lt;/h1&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="网络通讯" scheme="https://blog.timeroar.com/categories/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/"/>
+    
+    
+    <category term="网络通讯" scheme="https://blog.timeroar.com/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/"/>
+    
+    <category term="TCP/IP" scheme="https://blog.timeroar.com/tags/TCP-IP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>并发编程的艺术-线程池的原理与分析</title>
     <link href="https://blog.timeroar.com/posts/48722.html"/>
     <id>https://blog.timeroar.com/posts/48722.html</id>
     <published>2021-12-28T15:32:06.000Z</published>
-    <updated>2021-12-28T15:32:09.066Z</updated>
+    <updated>2021-12-28T15:37:24.326Z</updated>
     
     
       
