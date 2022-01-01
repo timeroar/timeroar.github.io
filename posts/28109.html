@@ -4,13 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="系统架构,架构师,系统重构">
-    <meta name="description" content="架构师之路-系统重构的前置条件
-在我们的工作当中,难免会遇到系统架构重构的问题,但是我们不能盲目的进行系统重构,因为重构的成本,代价还是很大的,那么什么时候,或者契机的情况下才能适合重构呢?
-系统重构的标准因素
-
-
-当架构不能再去适应业务发">
+    <meta name="keywords" content="Mysql,Mysql架构,explain">
+    <meta name="description" content="数据库的魅力-Mysql架构的探索
+前述
+数据库我们并不陌生,但是他又显得那么的陌生,为什么呢? 在编码中,我们可能通过ORM框架去链接数据库,例如利用Mybatis去写Sql,甚至我们直接用面向对象的框架JPA连Sql都不用去写,我们时时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>架构师之路-系统重构的前置条件 | TimeRoar的博客</title>
+    <title>数据库的魅力-Mysql架构的探索 | TimeRoar的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.5/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/timeroar/timeroar.github.io@1.0.5/libs/awesome/css/all.min.css">
@@ -271,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/build.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/database.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">架构师之路-系统重构的前置条件</h1>
+                    <h1 class="description center-align post-title">数据库的魅力-Mysql架构的探索</h1>
                 </div>
             </div>
         </div>
@@ -392,12 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                                <span class="chip bg-color">架构师</span>
+                            <a href="/tags/Mysql/">
+                                <span class="chip bg-color">Mysql</span>
                             </a>
                         
-                            <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84/">
-                                <span class="chip bg-color">系统重构</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/">
+                                <span class="chip bg-color">数据库架构</span>
                             </a>
                         
                     </div>
@@ -408,8 +405,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="post-category">
-                                架构师
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
                             </a>
                         
                     </div>
@@ -421,28 +418,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-13
+                    2022-01-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-15
+                    2022-01-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    7 分
                 </div>
                 
 
@@ -465,54 +462,196 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>架构师之路-系统重构的前置条件</h1>
-<p>在我们的工作当中,难免会遇到系统架构重构的问题,但是我们不能盲目的进行系统重构,因为重构的成本,代价还是很大的,那么什么时候,或者契机的情况下才能适合重构呢?</p>
-<h2 id="系统重构的标准因素">系统重构的标准因素</h2>
-<ol>
+                <h1>数据库的魅力-Mysql架构的探索</h1>
+<h2 id="前述">前述</h2>
+<p>数据库我们并不陌生,但是他又显得那么的陌生,为什么呢? 在编码中,我们可能通过ORM框架去链接数据库,例如利用Mybatis去写Sql,甚至我们直接用面向对象的框架JPA连Sql都不用去写,我们时时刻刻都在用它,一直从它那里获取结果,除了专业的DBA外,很少有人主动去了解它是怎么做的。</p>
+<p>本博文将围绕<strong>对于数据库的CRUD,数据库又为我们做了哪些事情</strong>为主题来分析。本文采用Mysql 5.7版本举例</p>
+<h2 id="分层架构">分层架构</h2>
+<p>Mysql采用分层架构设计,总体可以分为三层:</p>
+<ul>
+<li>连接层</li>
+<li>服务层</li>
+<li>存储层</li>
+</ul>
+<p>其中,连接层负责管理链接,权限验证等操作,服务层可以分为三层,首先负责对sql语句解析,然后经过Mysql底层规则,索引等优化后,根据执行结果进行返回,存储层就是Mysql的存储引擎,通过引擎存储到硬盘或者内存等介质。</p>
+<h2 id="连接的建立">连接的建立</h2>
+<p>先了解Mysql两个命令</p>
+<ul>
+<li>show status       查看mysql各种状态</li>
+<li>show variables  查看mysql各种配置属性</li>
+</ul>
+<p>解释如名。</p>
+<p>步入正题,不管我们通过PLSQL,Navicat等数据库工具还是ORM框架,首要的第一步就是对于数据库建立链接,Mysql提供两种类型的链接建立方式:</p>
+<ul>
+<li>交互式链接</li>
+<li>非交互式链接</li>
+</ul>
+<p>交互式链接类似于用的Navicat链接工具,非交互式就是我们用的JDBC获取资源,当然不管哪种链接建立方式,都需要消耗系统线程去建立处理,势必会影响系统资源,所以Mysql给我们提供了两个参数配置来限制链接时长,分别为</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'wait_timeout'</span><span class="token punctuation">;</span>     <span class="token comment">-- 非交互式超时时间</span>
+<span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'interactive_timeout'</span><span class="token punctuation">;</span>  <span class="token comment">-- 交互式超时时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>执行上述Sql后结果分别为:</p>
+<table>
+<thead>
+<tr>
+<th>Variables_name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wait_timeout</td>
+<td>28800</td>
+</tr>
+<tr>
+<td>interactive_timeout</td>
+<td>28800</td>
+</tr>
+</tbody>
+</table>
+<p>由此说明Mysql不管什么方式进行链接,默认无操作超过28800秒(即8小时)后就会被强制断开链接。</p>
+<p>另外,系统线程数量也是有限的,Mysql不会让你无限制的建立链接,所以在数量上也有限制,我们通过下面命令可以得到Mysql当前链接允许的上限</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">global</span> variables <span class="token operator">like</span> <span class="token string">'max_connections'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们会得到结果:</p>
+<table>
+<thead>
+<tr>
+<th>Variables</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max_connections</td>
+<td>151</td>
+</tr>
+</tbody>
+</table>
+<p>说明我们当前设置的最大链接上限为151</p>
+<p>另外,大家发现没,如上面sql相比,多了<code>global</code>关键字, 其实Mysql在参数设置与查看上存在两种级别:</p>
+<ul>
+<li>session:  会话级别,只对当前链接/窗口有效</li>
+<li>global:    全局级别,对全局有用</li>
+</ul>
+<p>而且并不是每个<code>variables</code>都可以在这两种级别环境设置,就比如我们刚才使用的<code>max_connections</code>就只有<code>global</code>级别</p>
+<h2 id="SQL语法预处理">SQL语法预处理</h2>
+<p>既然要执行Sql,那么SQL的语法是否可被执行,就是通过Mysql的语法解析器与预处理模块来处理了</p>
+<p>我们已执行个简单的sql为例</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> blog_name <span class="token keyword">from</span> blog <span class="token keyword">where</span> blog_author <span class="token operator">=</span> <span class="token string">'timeroar'</span> <span class="token operator">and</span> blog_title <span class="token operator">=</span> <span class="token string">'数据库'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Mysql在执行上面的Sql之前,它要知道写的是什么,并且要了解意思,这是一个最基本的功能,mysql的语法解析是对语法进行打碎并生成语法树,如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/Sql%E8%AF%AD%E6%B3%95%E6%A0%91.png" alt="Sql语法树"></p>
+<p>语法解析完了,接下来就要分析正确性了,mysql会对语法树上的字段名,表名进行检索,判断是否存在,这个功能,就是Mysql的预处理功能。</p>
+<h2 id="执行计划与优化器">执行计划与优化器</h2>
+<p>我们的sql并不是只有我们在书写过程中可以优化sql逻辑,mysql的底层在预执行之前也会根据一系列复杂的算法帮我们优化sql,比如连接的消除,语义的优化等等逻辑, 但是我们并不能完全的依赖于优化器,经过优化器后会生成一个执行计划,我们可以通过<code>explan</code>关键字获取sql查询计划,例如下面的语句</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">EXPLAIN</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> sys_user us <span class="token keyword">left</span> <span class="token keyword">join</span> sys_users_roles r <span class="token keyword">on</span> r<span class="token punctuation">.</span>user_id <span class="token operator">=</span> us<span class="token punctuation">.</span>user_id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们可以得到执行结果:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>select_type</th>
+<th>table</th>
+<th>partitions</th>
+<th>type</th>
+<th>possible_keys</th>
+<th>key</th>
+<th>key_len</th>
+<th>ref</th>
+<th>rows</th>
+<th>filtered</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SIMPLE</td>
+<td>us</td>
+<td></td>
+<td>ALL</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>SIMPLE</td>
+<td>r</td>
+<td></td>
+<td>ref</td>
+<td>PRIMARY</td>
+<td>PRIMARY</td>
+<td>8</td>
+<td>teacher.us.user_id</td>
+<td>1</td>
+<td>100</td>
+<td>Using index</td>
+</tr>
+</tbody>
+</table>
+<h3 id="explain">explain</h3>
+<p>先介绍下explain每个字段的含义</p>
+<ul>
 <li>
-<p>当架构不能再去适应业务发展的需要时。</p>
-<p>重构系统,往往是我们已经对现有系统架构无可奈何之时,因为重构的前提往往是我们的系统已经部署到生产环境,虽然当前系统可能有问题,也有可能很烂,但是这很正常,没有一个系统的架构是完美无缺的,至少现在的它能在生产上跑,能满足现有业务需求,所以,<strong>能不动,尽量不去动</strong>它。但是如果业务发展就是很快,用户体系也日益增多或者现有架构可能满足,但是无法在未来几年之后达到业务发展以及用户的需求,这时候你就<strong>不能以技术的阻碍去影响公司业务的发展</strong>,此时就需要重构。</p>
+<p>ID: id代表执行select语句或者操作表的顺序, 如果ID相同,则ID相同的为一组从上至下依次执行,如果ID不同,则ID从大到小依次执行</p>
 </li>
 <li>
-<p>前人挖坑无法填,代码紊乱无法直视</p>
-<p>我们作为一名优秀的程序员,往往会有一种情结,就是,前面人写的代码太垃圾,无法直视,举些例子比如服务api想怎么写怎么写,本来一个服务对用户负责,结果用户服务层还掺着订单接口,后来人员跟代码都能跟的一脸懵逼,简单总结就是<strong>开发一时爽,维护火葬场</strong>的代码。这种情况,我们可以去<strong>主张重构</strong>,但是也得想清楚会<strong>带来的风险以及代价</strong>。因为往往这种情况下,代码是可以在生产上运行的,业务人员或者用户不会去关心你代码怎么写的,只关心功能是不是正常。</p>
-</li>
-</ol>
-<h2 id="系统重构的风险因素">系统重构的风险因素</h2>
-<ol>
-<li>
-<p>系统重构对原有功能带来风险</p>
-<p>简单来说就是原有功能,可能正常使用,重构后,可能出现无法正常使用的问题,对用户体验感会非常不友好,往往就是,我以前能用啊,怎么现在不能用了!</p>
-</li>
-<li>
-<p>对于新的需求推迟开发上线</p>
-<p>重构的过程,我们先要需要保证原有功能不被影响,所以势必会导致对于新来的需求往后推迟,这也变相导致公司付出成本。</p>
+<p>select_type: 查询类型,一共有六种分别是:</p>
+<ul>
+<li>SIMPLE:   简单查询, 查询不包含复杂查询逻辑,如UNION</li>
+<li>PRIMARY: 当查询中包含复杂的子部分时,最外层查询会被标记为<code>PRIMARY</code></li>
+<li>SUBQUERY:  查询字段或者where条件中包含子查询</li>
+<li>DERIVED:  from列表包含的子查询</li>
+<li>UNION: 当select出现在UNION之后,会被标记为UNION</li>
+<li>UNION RESULT:UNION后获取结果的SELECT</li>
+</ul>
 </li>
 <li>
-<p>重复测试问题</p>
-<p>系统重构后,不光是对未上线功能的测试,也要对原有功能进行再次测试,而且再次测试也可能存在测试不到位的风险。</p>
-</li>
-</ol>
-<h2 id="系统重构的准备工作">系统重构的准备工作</h2>
-<ol>
-<li>
-<p>足够了解原来的业务</p>
-<p>在重构之前,我们不仅仅只是要了解业务,还要<strong>真正的完全理解业务</strong>,以及现有<strong>系统的业务规模</strong></p>
+<p>table: 指当前操作的表,或者<code>DERIVED</code>标记的临时表。</p>
 </li>
 <li>
-<p>对于技术的选型</p>
-<p>对于技术要做预研,可能我们喜欢追求新技术,但是新技术未必全是最好的,所以说没有最好的技术,只有最合适的技术,作为架构师的我们一定要记住一点就是,<strong>技术永远为业务服务</strong></p>
+<p>type: 表示查询使用了哪种类型,类型如下:</p>
+<ul>
+<li>system: 系统表范畴,表中只有一列数据的时候可能会出现</li>
+<li>const: 通常为主键或者unique唯一索引进行条件比较查询, 表示一次就能索引到的数据,例如 <code>where id = 1</code></li>
+<li>eq_ref: 通常为主键或者unique唯一索引进行记录扫描,表中有且只有一条记录与之匹配, 关联条件可见,如<code>user.id = role.id</code></li>
+<li>ref: 与eq_ref的区别是,它是非唯一性索引扫描,返回匹配的所有行。</li>
+<li>range: 给定范围进行索引列的索引,如where条件中使用in、between等关键字对主键ID进行范围查询</li>
+<li>index: 全表扫描,但是查询字段为索引字段时</li>
+<li>all: 全表扫描,但是查询字段为非索引字段</li>
+</ul>
+<p>效率上从最好到最烂依次为<code>system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; all</code> ,工作中查询语句一般至少要达到range级别</p>
 </li>
 <li>
-<p>要做好基础的建设</p>
-<p>在系统重构之前,先要做好基础服务的建设,开发规范以及开发手册的撰写,CI(持续集成)/CD(持续交付)环境的搭建,这是一名架构师要做到的。这里的基础建设可以不用很全,但是一定要有,我们对于系统架构,要遵循着<strong>约定优于配置</strong>的原则,约定好了,工作效率以及代码质量也会提高。<strong>基础建设是系统重构最关键的环节</strong></p>
+<p>possible_keys: 可能存在的索引,查询字段存在索引,则会在这里显示,但是并不一定被使用</p>
 </li>
-</ol>
-<h2 id="单体-All-in-one-还是微服务-Micro-Service">单体(All in one) 还是微服务(Micro Service)?</h2>
-<p>现在,分布式微服务的概念深入程序员的心中,因为不管是面试,还是应用,牵扯到这个就会显得高大上,那我们在架构的时候,是不是需要建设分布式微服务的体系呢,答案是不一定的,假设你的用户群体只有几万,日活跃可能几千,你把阿里或者字节的架构搬到你的系统作为基础架构,一定就好用吗? 答案同样是不一定,可能最后还不如你系统原本架构好用,所以,<strong>只有适合的才是最好的架构</strong></p>
-<blockquote>
-<p>参考:	沽泡Tom老师</p>
-</blockquote>
+<li>
+<p>key: 实际会使用的索引,如果为<code>NULL</code>,则表示没有用到索引,或者索引失效, 当通过索引查询索引字段时,如 <code>select id from user where id = 1</code>, 此时并不会在possible_keys中显示,而直接在key中显示。</p>
+</li>
+<li>
+<p>key_len: 索引中使用的字节长度,值为索引字段的最大可能长度而不是表中实际数据长度,再不损失精确度的情况下,长度越短越好。</p>
+</li>
+<li>
+<p>ref: 索引被引用的列</p>
+</li>
+<li>
+<p>rows: 根据预信息统计即索引使用情况,得出如果得到我们所需要的结果,需要使用多少行数据。</p>
+</li>
+<li>
+<p>Extra: 当前表对于其他表没有显著作用给出来的额外提示信息,它有以下几类信息</p>
+<ul>
+<li>Using filesort（九死一生）: 出现这个标志意味着你的sql需要优化,因为mysql无法利用索引来完成排序操作,需要对数据使用一个外部的排序操作</li>
+<li>Using temporary（十死无生）:使用了临时表来存储中间过程数据,必定影响效率,需要优化</li>
+<li>Using index 用到了覆盖索引, 如果同时出现了<code>using where</code>，表明索引被用来执行索引键值的查找,反之表明索引用来读取数据而非执行查找动作。</li>
+<li>Using where :使用了where查询语句</li>
+<li>impossible where: where 结果永远为<code>false</code></li>
+<li>Using join buffer: 使用了链接缓存</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -539,7 +678,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.timeroar.com/posts/33741.html">https://blog.timeroar.com/posts/33741.html</a>
+                    <a href="https://blog.timeroar.com/posts/28109.html">https://blog.timeroar.com/posts/28109.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,12 +716,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                                    <span class="chip bg-color">架构师</span>
+                                <a href="/tags/Mysql/">
+                                    <span class="chip bg-color">Mysql</span>
                                 </a>
                             
-                                <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84/">
-                                    <span class="chip bg-color">系统重构</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/">
+                                    <span class="chip bg-color">数据库架构</span>
                                 </a>
                             
                         </div>
@@ -1020,16 +1159,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/65132.html">
+                <a href="/posts/28109.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/design.jpg" class="responsive-img" alt="架构师之路-七大软件设计的原则">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/database.jpg" class="responsive-img" alt="数据库的魅力-Mysql架构的探索">
                         
-                        <span class="card-title">架构师之路-七大软件设计的原则</span>
+                        <span class="card-title">数据库的魅力-Mysql架构的探索</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1039,30 +1179,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="post-category">
-                                    架构师
+                            <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/">
-                        <span class="chip bg-color">架构师</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-                        <span class="chip bg-color">软件设计原则</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/">
+                        <span class="chip bg-color">数据库架构</span>
                     </a>
                     
                 </div>
@@ -1076,12 +1217,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/13835.html">
+                <a href="/posts/11040.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/Security.jpg" class="responsive-img" alt="Spring Security的原理与探索">
+                        <img src="https://cdn.jsdelivr.net/gh/timeroar/blog-image/blog_image/net_base.jpg" class="responsive-img" alt="网络通讯-大白话理解OSI七层模型与TCP四层概念">
                         
-                        <span class="card-title">Spring Security的原理与探索</span>
+                        <span class="card-title">网络通讯-大白话理解OSI七层模型与TCP四层概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1092,14 +1233,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/" class="post-category">
-                                    认证与授权
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/" class="post-category">
+                                    网络通讯
                                 </a>
                             
                             
@@ -1109,16 +1250,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Security/">
-                        <span class="chip bg-color">Spring Security</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/">
+                        <span class="chip bg-color">网络通讯</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%8E%88%E6%9D%83/">
-                        <span class="chip bg-color">认证与授权</span>
-                    </a>
-                    
-                    <a href="/tags/Filter/">
-                        <span class="chip bg-color">Filter</span>
+                    <a href="/tags/TCP-IP/">
+                        <span class="chip bg-color">TCP/IP</span>
                     </a>
                     
                 </div>

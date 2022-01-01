@@ -6,7 +6,7 @@
   <link href="https://blog.timeroar.com/atom.xml" rel="self"/>
   
   <link href="https://blog.timeroar.com/"/>
-  <updated>2021-12-29T15:15:32.326Z</updated>
+  <updated>2022-01-01T14:54:23.983Z</updated>
   <id>https://blog.timeroar.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库的魅力-Mysql架构的探索</title>
+    <link href="https://blog.timeroar.com/posts/28109.html"/>
+    <id>https://blog.timeroar.com/posts/28109.html</id>
+    <published>2022-01-01T15:02:01.000Z</published>
+    <updated>2022-01-01T14:54:23.983Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;数据库的魅力-Mysql架构的探索&lt;/h1&gt;
+&lt;h2 id=&quot;前述&quot;&gt;前述&lt;/h2&gt;
+&lt;p&gt;数据库我们并不陌生,但是他又显得那么的陌生,为什么呢?</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="https://blog.timeroar.com/categories/DataBase/"/>
+    
+    
+    <category term="Mysql" scheme="https://blog.timeroar.com/tags/Mysql/"/>
+    
+    <category term="数据库架构" scheme="https://blog.timeroar.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>网络通讯-大白话理解OSI七层模型与TCP四层概念</title>
